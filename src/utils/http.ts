@@ -22,14 +22,6 @@ const multipartFormInstance = axios.create({
   },
 });
 
-const mapInstance = axios.create({
-  baseURL: envConfig.opencageURL,
-
-  headers: {
-    "Content-Type": "application/json",
-  },
-});
-
 var accessToken = getAccessTokenFromLS();
 
 applicationJSONInstance.interceptors.request.use(
@@ -135,4 +127,4 @@ multipartFormInstance.interceptors.response.use(
   }
 );
 
-export { applicationJSONInstance, multipartFormInstance, mapInstance };
+export { applicationJSONInstance, multipartFormInstance };
