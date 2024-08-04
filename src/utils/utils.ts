@@ -1,10 +1,10 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import HttpStatusCode from "../constants/httpStatusCode.enum";
-export function isAxiosError(error: Error) {
+export function isAxiosError(error: Error | AxiosError) {
   return axios.isAxiosError(error);
 }
 
-export function isAxiosUnprocessableEntityError(error: Error) {
+export function isAxiosUnprocessableEntityError(error: Error | AxiosError) {
   return (
     isAxiosError(error) &&
     error.response?.status === HttpStatusCode.UnprocessableEntity
