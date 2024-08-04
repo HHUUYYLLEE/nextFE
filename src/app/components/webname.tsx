@@ -6,18 +6,9 @@ const segmented14 = localFont({
   src: "../../../public/fonts/DSEG14Modern-Italic.woff",
 });
 export default function WebName() {
-  const [switchState, setSwitchState] = useState<boolean[]>([
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ]);
+  const [switchState, setSwitchState] = useState<boolean[]>(
+    Array(10).fill(true)
+  );
   function run(): void {
     let arr = [];
     for (let i = 0; i < 10; ++i) {
