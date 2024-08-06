@@ -6,12 +6,17 @@ export default function Footer() {
       <div className="mx-[2rem] sm:flex sm:gap-x-[7rem] 2xl:gap-x-[15rem]">
         <div className="py-[2rem]">
           <div className=" text-white italic text-lg">Liên lạc qua</div>
-          <div className="flex items-center gap-x-3 sm:mt-[1.5rem]">
-            <a href="https://www.facebook.com/huy.leba.75">
+
+          <div className="sm:mt-[1.5rem] mr-[7rem]">
+            <a
+              href="https://www.facebook.com/huy.leba.75"
+              className="flex items-center gap-x-3"
+            >
               <Image src="/images/facebook.png" alt="" width={20} height={20} />
+              <div>Huy Lê</div>
             </a>
-            <div>Huy Lê</div>
           </div>
+
           <div className="flex mt-[0.5rem] items-center gap-x-3">
             <Image src="/images/email.png" alt="" width={20} height={20} />
             <div>lebahuybk@gmail.com</div>
