@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Info from "./components/info";
 import QRCodes from "./components/qrcodes";
+import ProgLangMarquee from "./components/proglangmarquee";
+
 export default function Home() {
   return (
     <main className="mx-[5rem] my-[6rem]">
@@ -13,7 +15,7 @@ export default function Home() {
         </div>
         <QRCodes />
       </div>
-      <div>sdasd</div>
+      <ProgLangMarquee />
     </main>
   );
 }

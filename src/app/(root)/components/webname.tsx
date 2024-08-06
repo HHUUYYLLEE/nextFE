@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import { useEffect, useState } from "react";
 
 const segmented14 = localFont({
-  src: "../../../public/fonts/DSEG14Modern-Italic.woff",
+  src: "../../../../public/fonts/DSEG14Modern-Italic.woff",
 });
 export default function WebName() {
   const [switchState, setSwitchState] = useState<boolean[]>(

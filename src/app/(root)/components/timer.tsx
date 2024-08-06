@@ -3,10 +3,10 @@ import { DateTime } from "luxon";
 import { useRef, useEffect } from "react";
 import localFont from "next/font/local";
 const segmented7 = localFont({
-  src: "../../../public/fonts/DSEG7Classic-Bold.woff",
+  src: "../../../../public/fonts/DSEG7Classic-Bold.woff",
 });
 const segmented14 = localFont({
-  src: "../../../public/fonts/DSEG14Modern-Italic.woff",
+  src: "../../../../public/fonts/DSEG14Modern-Italic.woff",
 });
 
 export default function Timer() {

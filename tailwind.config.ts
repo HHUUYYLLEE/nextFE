@@ -8,10 +8,19 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      animation: {
+        marqueexl: "marqueexl 40s linear infinite",
+        marquee2xl: "marquee2xl 40s linear infinite",
+      },
+      keyframes: {
+        marqueexl: {
+          "0%": { transform: "translate(108%, 0)" },
+          "100%": { transform: "translate(-100%, 0)" },
+        },
+        marquee2xl: {
+          "0%": { transform: "translate(133%, 0)" },
+          "100%": { transform: "translate(-100%, 0)" },
+        },
       },
     },
   },

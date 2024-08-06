@@ -18,7 +18,7 @@ export default function Info() {
 
       <a
         href="https://www.facebook.com/huy.leba.75"
-        className="flex items-center gap-x-2 hover:underline w-max
+        className="flex items-center gap-x-2 hover:underline text-white w-max
             hover:outline-1 hover:outline-white hover:outline rounded-lg"
       >
         <Image
@@ -27,7 +27,7 @@ export default function Info() {
           width={35}
           height={35}
         ></Image>
-        <div className="text-white">https://www.facebook.com/huy.leba.75</div>
+        <div>https://www.facebook.com/huy.leba.75</div>
       </a>
 
       <div
@@ -40,11 +40,11 @@ export default function Info() {
 
       <a
         href="https://github.com/HHUUYYLLEE"
-        className="flex items-center gap-x-2 hover:underline w-full
+        className="flex items-center gap-x-2 hover:underline text-white w-full
               hover:outline-1 hover:outline-white hover:outline rounded-lg"
       >
         <Image alt="" src="/images/github.png" width={35} height={35}></Image>
-        <div className="text-white">https://github.com/HHUUYYLLEE</div>
+        <div>https://github.com/HHUUYYLLEE</div>
       </a>
     </div>
   );
