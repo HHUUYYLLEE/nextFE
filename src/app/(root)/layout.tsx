@@ -4,6 +4,7 @@ import { headers } from "next/headers";
 import { getSelectorsByUserAgent } from "react-device-detect";
 import Header from "./(components)/header";
 import Footer from "./(components)/footer";
+import Providers from "./providers";
 import "../globals.css";
 import { redirect } from "next/navigation";
 
@@ -30,7 +31,7 @@ export default function RootLayout({
           <div className="">
             <Header />
           </div>
-          {children}
+          <Providers>{children}</Providers>
           <div className="bg-gray-800">
             <Footer />
           </div>

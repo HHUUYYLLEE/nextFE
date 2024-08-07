@@ -5,3 +5,7 @@ export interface keyInfoInterface {
   refresh_token: string;
   role: number;
 }
+export interface randomImageInterface {
+  message: string;
+  url: string;
+}

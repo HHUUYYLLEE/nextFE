@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <>
       <header
-        className="fixed z-[20] hover:opacity-60 flex justify-between top-0 w-full h-20 shadow-lg 
+        className="fixed z-[20] flex justify-between top-0 w-full h-20 shadow-lg 
       items-center transition duration-450 bg-gray-800"
       >
         <Link href="/" className="focus:outline-none">

@@ -1,7 +1,7 @@
-const envConfig = {
+export const envConfig = {
   deployURL:
-    process.env.OPTION === "1" ? process.env.LOCAL_URL : process.env.CLOUD_URL,
-  googleClientID: process.env.GOOGLE_CLIENT_ID,
+    process.env.NEXT_PUBLIC_OPTION === "1"
+      ? process.env.NEXT_PUBLIC_LOCAL_URL
+      : process.env.NEXT_PUBLIC_CLOUD_URL,
+  googleClientID: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
 };
-
-export { envConfig };
