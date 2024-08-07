@@ -12,7 +12,8 @@ export default function Info() {
           src="/images/phonering.gif"
           width={35}
           height={35}
-        ></Image>
+          draggable="false"
+        />
         <div className="pointer-events-none text-white">0833471885</div>
       </div>
 
@@ -26,7 +27,8 @@ export default function Info() {
           src="/images/facebookgif.gif"
           width={35}
           height={35}
-        ></Image>
+          draggable="false"
+        />
         <div>https://www.facebook.com/huy.leba.75</div>
       </a>
 
@@ -34,8 +36,16 @@ export default function Info() {
         className="flex items-center gap-x-2 w-full
           hover:outline-1 hover:outline-white hover:outline rounded-lg"
       >
-        <Image alt="" src="/images/newemail.gif" width={35} height={35}></Image>
-        <div className="text-white">lebahuybk@gmail.com</div>
+        <Image
+          alt=""
+          src="/images/newemail.gif"
+          width={35}
+          height={35}
+          draggable="false"
+        />
+        <div className="text-white pointer-events-none">
+          lebahuybk@gmail.com
+        </div>
       </div>
 
       <a
@@ -43,7 +53,13 @@ export default function Info() {
         className="flex items-center gap-x-2 hover:underline text-white w-full
               hover:outline-1 hover:outline-white hover:outline rounded-lg"
       >
-        <Image alt="" src="/images/github.png" width={35} height={35}></Image>
+        <Image
+          alt=""
+          src="/images/github.png"
+          width={35}
+          height={35}
+          draggable="false"
+        />
         <div>https://github.com/HHUUYYLLEE</div>
       </a>
     </div>

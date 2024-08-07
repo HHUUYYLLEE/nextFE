@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { headers } from "next/headers";
 import { getSelectorsByUserAgent } from "react-device-detect";
-import Header from "./components/header";
-import Footer from "./components/footer";
+import Header from "./(components)/header";
+import Footer from "./(components)/footer";
 import "../globals.css";
 import { redirect } from "next/navigation";
 

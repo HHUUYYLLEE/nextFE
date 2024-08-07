@@ -9,16 +9,16 @@ const config: Config = {
   theme: {
     extend: {
       animation: {
-        marqueexl: "marqueexl 40s linear infinite",
-        marquee2xl: "marquee2xl 40s linear infinite",
+        marqueexl: "marqueexl 35s linear infinite",
+        marquee2xl: "marquee2xl 35s linear infinite",
       },
       keyframes: {
         marqueexl: {
-          "0%": { transform: "translate(108%, 0)" },
+          "0%": { transform: "translate(120%, 0)" },
           "100%": { transform: "translate(-100%, 0)" },
         },
         marquee2xl: {
-          "0%": { transform: "translate(133%, 0)" },
+          "0%": { transform: "translate(140%, 0)" },
           "100%": { transform: "translate(-100%, 0)" },
         },
       },

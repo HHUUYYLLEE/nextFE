@@ -19,21 +19,16 @@ export default function Error() {
           src="/images/errordetectphone.png"
           width={150}
           height={150}
-        ></Image>
+        />
         <Image
           alt=""
           src="/images/errordetecttablet.png"
           width={150}
           height={150}
-        ></Image>
+        />
       </div>
       <div className="flex justify-center">
-        <Image
-          alt=""
-          src="/images/pepeslap.jpg"
-          width={200}
-          height={200}
-        ></Image>
+        <Image alt="" src="/images/pepeslap.jpg" width={200} height={200} />
       </div>
     </div>
   );

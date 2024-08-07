@@ -8,13 +8,15 @@ export default function QRCodes() {
           src="/images/qr-momo.png"
           width={150}
           height={150}
-        ></Image>
+          draggable="false"
+        />
         <Image
           alt=""
           src="/images/qr-zalo.png"
           width={150}
           height={150}
-        ></Image>
+          draggable="false"
+        />
       </div>
       <div className="flex justify-center">
         <Image
@@ -22,7 +24,8 @@ export default function QRCodes() {
           src="/images/phonemoney.png"
           width={90}
           height={90}
-        ></Image>
+          draggable="false"
+        />
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Timer from "./timer";
-import WebName from "./webname";
+import WebName from "./webName";
 
 export default function Header() {
   return (
@@ -19,6 +19,7 @@ export default function Header() {
                 height={70}
                 alt=""
                 priority
+                draggable="false"
               />
             </div>
             <WebName />
