@@ -27,11 +27,13 @@ export default function RootLayout({
   else
     return (
       <html lang="en">
-        <body className={inter.className + " bg-black "}>
+        <body className={inter.className + " bg-[#12101b] "}>
           <div className="">
             <Header />
           </div>
-          <Providers>{children}</Providers>
+          <div className="">
+            <Providers>{children}</Providers>
+          </div>
           <div className="bg-gray-800">
             <Footer />
           </div>

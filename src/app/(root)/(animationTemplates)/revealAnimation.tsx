@@ -13,7 +13,7 @@ export function RevealAnimationLeftToRight({
   delay,
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref);
+  const isInView = useInView(ref, { once: true });
   const mainControls = useAnimation();
   useEffect(() => {
     if (isInView) mainControls.start("visible");
@@ -41,7 +41,7 @@ export function RevealAnimationRightToLeft({
   delay,
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref);
+  const isInView = useInView(ref, { once: true });
   const mainControls = useAnimation();
   useEffect(() => {
     if (isInView) mainControls.start("visible");
@@ -70,7 +70,7 @@ export function RevealAnimationTopToBottom({
   delay,
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref);
+  const isInView = useInView(ref, { once: true });
   const mainControls = useAnimation();
   useEffect(() => {
     if (isInView) mainControls.start("visible");
@@ -98,7 +98,7 @@ export function RevealAnimationBottomToTop({
   delay,
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref);
+  const isInView = useInView(ref, { once: true });
   const mainControls = useAnimation();
   useEffect(() => {
     if (isInView) mainControls.start("visible");
