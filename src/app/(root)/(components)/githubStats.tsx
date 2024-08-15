@@ -4,6 +4,7 @@ import {
   RevealAnimationLeftToRight,
   RevealAnimationRightToLeft,
 } from "../(animationTemplates)/revealAnimation";
+
 export default function GithubStats() {
   return (
     <div className="flex justify-between 2xl:mx-[4rem]">

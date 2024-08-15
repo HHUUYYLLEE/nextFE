@@ -56,6 +56,7 @@ export default function RandomImagesGenerator() {
                 width={0}
                 sizes="100vw"
                 style={{ width: "auto", height: "250px" }}
+                draggable="false"
               />
               <div className="flex justify-center text-white italic mt-[0.7rem]">
                 Loading...

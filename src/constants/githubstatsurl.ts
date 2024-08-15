@@ -1,4 +1,4 @@
-const GithubStatsUrls = {
+export const GithubStatsUrls = {
   stats:
     "https://github-readme-stats-two-orpin-82.vercel.app/api?" +
     "username=HHUUYYLLEE&" +
@@ -38,4 +38,3 @@ const GithubStatsUrls = {
     "border_radius=10&" +
     "hide_border=true",
 };
-export { GithubStatsUrls };
