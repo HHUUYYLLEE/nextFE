@@ -8,7 +8,8 @@ export default function Error() {
   }
 
   useEffect(() => {
-    setTimeout(backToBlank, 2000);
+    const timeout = setTimeout(backToBlank, 2000);
+    return () => clearTimeout(timeout);
   }, []);
 
   return (

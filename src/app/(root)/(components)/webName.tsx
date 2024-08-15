@@ -11,16 +11,12 @@ export default function WebName() {
   );
   function run(): void {
     let arr = [];
+    const randomNum = Math.floor(Math.random() * 1024);
+    const binaryVal = randomNum.toString(2);
+    const binaryStr = binaryVal.padStart(10, "0");
     for (let i = 0; i < 10; ++i) {
-      const rand = Math.floor(Math.random() * 2);
-      switch (rand) {
-        case 0:
-          arr.push(false);
-          break;
-        case 1:
-        default:
-          arr.push(true);
-      }
+      if (binaryStr[i] === "0") arr.push(false);
+      else arr.push(true);
     }
     setSwitchState(arr);
   }

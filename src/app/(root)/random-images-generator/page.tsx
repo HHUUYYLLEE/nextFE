@@ -2,6 +2,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { getRandomImage } from "@/app/(api)/randomImages";
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
 export default function RandomImagesGenerator() {
   const { data, refetch, isSuccess, isFetching } = useQuery({
@@ -12,15 +13,29 @@ export default function RandomImagesGenerator() {
     enabled: false,
     retry: true,
   });
+  const [loadingImg, setLoadingImg] = useState(false);
+  const imageRef = useRef<HTMLImageElement>(null);
+  useEffect(() => {
+    if (imageRef.current) {
+      if (imageRef.current.complete) setLoadingImg(false);
+      else setLoadingImg(true);
+    }
+  }, [isFetching]);
   return (
     <main className="mx-[5rem] my-[8rem]">
       <div className="text-white flex justify-center font-lexend-400 text-[3rem]">
         Random Images Generator
       </div>
-      <div className="mt-[3rem] h-[250px]">
+      <div className="mt-[3rem] h-[270px]">
         {isSuccess && !isFetching && (
-          <div className="flex justify-center">
+          <div
+            className={`flex justify-center ${
+              loadingImg ? " absolute opacity-0 " : ""
+            }`}
+          >
             <Image
+              onLoadingComplete={() => setLoadingImg(false)}
+              ref={imageRef}
               alt=""
               src={data.data.url}
               height={0}
@@ -31,16 +46,21 @@ export default function RandomImagesGenerator() {
             />
           </div>
         )}
-        {isFetching && (
+        {(isFetching || loadingImg) && (
           <div className="flex justify-center">
-            <Image
-              alt=""
-              src="/images/random-color-pixels.gif"
-              height={0}
-              width={0}
-              sizes="100vw"
-              style={{ width: "auto", height: "250px" }}
-            />
+            <div>
+              <Image
+                alt=""
+                src="/images/random-color-pixels.gif"
+                height={0}
+                width={0}
+                sizes="100vw"
+                style={{ width: "auto", height: "250px" }}
+              />
+              <div className="flex justify-center text-white italic mt-[0.7rem]">
+                Loading...
+              </div>
+            </div>
           </div>
         )}
       </div>

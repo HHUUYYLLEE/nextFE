@@ -12,7 +12,7 @@ export function RevealAnimationLeftToRight({
   duration,
   delay,
 }: Props) {
-  const ref = useRef<HTMLInputElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref);
   const mainControls = useAnimation();
   useEffect(() => {
@@ -40,7 +40,7 @@ export function RevealAnimationRightToLeft({
   duration,
   delay,
 }: Props) {
-  const ref = useRef<HTMLInputElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref);
   const mainControls = useAnimation();
   useEffect(() => {
@@ -69,7 +69,7 @@ export function RevealAnimationTopToBottom({
   duration,
   delay,
 }: Props) {
-  const ref = useRef<HTMLInputElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref);
   const mainControls = useAnimation();
   useEffect(() => {
@@ -97,7 +97,7 @@ export function RevealAnimationBottomToTop({
   duration,
   delay,
 }: Props) {
-  const ref = useRef<HTMLInputElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref);
   const mainControls = useAnimation();
   useEffect(() => {

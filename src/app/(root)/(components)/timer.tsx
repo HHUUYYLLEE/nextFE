@@ -10,9 +10,9 @@ const segmented14 = localFont({
 });
 
 export default function Timer() {
-  const div = useRef<HTMLInputElement>(null),
-    seconds = useRef<HTMLInputElement>(null),
-    session = useRef<HTMLInputElement>(null);
+  const div = useRef<HTMLSpanElement>(null),
+    seconds = useRef<HTMLSpanElement>(null),
+    session = useRef<HTMLSpanElement>(null);
   function time(): void {
     let d: string,
       s: string,
