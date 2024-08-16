@@ -34,7 +34,7 @@ export default function RandomImagesGenerator() {
             }`}
           >
             <Image
-              onLoadingComplete={() => setLoadingImg(false)}
+              onLoad={() => setLoadingImg(false)}
               ref={imageRef}
               alt=""
               src={data.data.url}

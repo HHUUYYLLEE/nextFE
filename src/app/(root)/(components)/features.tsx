@@ -108,7 +108,7 @@ export default function Features() {
             </Link>
             <Link
               href="/music_2"
-              className="border-r-2 flex justify-center w-full hover:bg-[#585757]"
+              className="flex justify-center w-full hover:bg-[#585757]"
             >
               <div
                 className={
@@ -120,30 +120,26 @@ export default function Features() {
                 2
               </div>
             </Link>
-            {/* <Link
-              href="/music_3"
-              className="flex justify-center w-full hover:bg-[#585757]"
-            >
-              <div
-                className={
-                  " text-white text-[2rem] select-none " +
-                  chopinScriptFont.className
-                }
-                draggable="false"
-              >
-                3
-              </div>
-            </Link> */}
           </div>
         </div>
       </RevealAnimationTopToBottom>
       <RevealAnimationBottomToTop duration={duration} delay={duration * 3}>
-        <div
-          className="flex justify-center items-center outline outline-white outline-[1px] rounded-lg h-[13.5rem]
+        <Link href="O_O">
+          <div
+            className="flex justify-center items-center outline outline-white outline-[1px] rounded-lg
         hover:scale-[110%] duration-300 hover:bg-[#4848483d]"
-        >
-          <div className=" text-white text-[4rem] my-[1rem] select-none">?</div>
-        </div>
+          >
+            <Image
+              alt=""
+              src="/images/warning.gif"
+              height={0}
+              width={0}
+              sizes="100vw"
+              style={{ width: "auto", height: "237px" }}
+              draggable="false"
+            />
+          </div>
+        </Link>
       </RevealAnimationBottomToTop>
     </div>
   );
