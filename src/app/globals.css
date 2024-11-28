@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Itim&family=Merienda:wght@300..900&family=Rye&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,6 +7,22 @@
 .font-lexend-400 {
   font-family: "Lexend", sans-serif;
   font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.font-rye-600-italic {
+  font-family: "Rye", serif;
+  font-weight: 600;
+  font-style: italic;
+}
+.font-merienda-500-italic {
+  font-family: "Merienda", cursive;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: italic;
+}
+.font-itim-regular {
+  font-family: "Itim", cursive;
   font-weight: 400;
   font-style: normal;
 }

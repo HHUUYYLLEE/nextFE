@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function ProgLangMarquee() {
   return (
-    <div className=" overflow-hidden flex">
+    <div className="overflow-hidden flex">
       <div className="xl:animate-marqueexl 2xl:animate-marquee2xl">
         <div className="flex gap-x-[8rem]">
           <a href="https://react.dev/">

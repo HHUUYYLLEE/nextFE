@@ -9,3 +9,9 @@ export interface randomImageInterface {
   message: string;
   url: string;
 }
+export interface shazamSearchInterface {
+  upload_file: File;
+}
+export interface SearchSongType {
+  [index: string]: string;
+}
