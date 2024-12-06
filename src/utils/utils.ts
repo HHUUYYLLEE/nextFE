@@ -1,5 +1,5 @@
 import axios, { AxiosError } from "axios";
-import HttpStatusCode from "../constants/httpStatusCode.enum";
+import HttpStatusCode from "src/constants/httpStatusCode.enum";
 export function isAxiosError(error: Error | AxiosError) {
   return axios.isAxiosError(error);
 }

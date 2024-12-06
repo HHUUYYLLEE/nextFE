@@ -1,9 +1,9 @@
 "use client";
-import { useState } from "react";
 import { QRCode } from "react-qrcode-logo";
+import QR_Codes_Generator_ViewModel from "src/viewModels/qr-codes-generator";
 
-export default function QRCodesGenerator() {
-  const [value, setValue] = useState<string>("");
+export default function QR_Codes_Generator() {
+  const { value, setValue } = QR_Codes_Generator_ViewModel();
   return (
     <main className="mx-[5rem] my-[8rem]">
       <div className="text-white flex justify-center font-lexend-400 text-[3rem]">

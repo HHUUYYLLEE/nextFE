@@ -1,26 +1,18 @@
 "use client";
-import { useQuery } from "@tanstack/react-query";
-import { getRandomImage } from "@/app/(api)/randomImages";
-import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
 
-export default function RandomImagesGenerator() {
-  const { data, refetch, isSuccess, isFetching } = useQuery({
-    queryKey: ["getRandomImage"],
-    queryFn: () => {
-      return getRandomImage();
-    },
-    enabled: false,
-    retry: true,
-  });
-  const [loadingImg, setLoadingImg] = useState(false);
-  const imageRef = useRef<HTMLImageElement>(null);
-  useEffect(() => {
-    if (imageRef.current) {
-      if (imageRef.current.complete) setLoadingImg(false);
-      else setLoadingImg(true);
-    }
-  }, [isFetching]);
+import Image from "next/image";
+import Random_Images_Generator_ViewModel from "src/viewModels/random-images-generator";
+
+export default function Random_Images_Generator() {
+  const {
+    isSuccess,
+    isFetching,
+    loadingImg,
+    setLoadingImg,
+    data,
+    imageRef,
+    refetch,
+  } = Random_Images_Generator_ViewModel();
   return (
     <main className="mx-[5rem] my-[8rem]">
       <div className="text-white flex justify-center font-lexend-400 text-[3rem]">
@@ -37,7 +29,7 @@ export default function RandomImagesGenerator() {
               onLoad={() => setLoadingImg(false)}
               ref={imageRef}
               alt=""
-              src={data.data.url}
+              src={data?.data.url || "#"}
               height={0}
               width={0}
               sizes="100vw"

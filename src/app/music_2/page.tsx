@@ -3,78 +3,24 @@ import AudioPlayer from "react-audio-player";
 import { FaFileAudio } from "react-icons/fa";
 import { SiShazam } from "react-icons/si";
 import { MdFileUpload } from "react-icons/md";
-import { ChangeEvent, useEffect, useRef, useState } from "react";
-
 import ReactAudioSpectrum from "react-audio-spectrum";
-import { useMutation } from "@tanstack/react-query";
-import { shazamSearch } from "@/app/(api)/shazamSearch";
-import { shazamSearchInterface, SearchSongType } from "@/types/types";
-import ShazamResultsModal from "../(components)/shazamResultsModal";
-import Modal from "react-modal";
-export default function Music_2() {
-  const [screenWidth, setScreenWidth] = useState<number>(0);
-  const [screenHeight, setScreenHeight] = useState<number>(0);
-  const [shazamDisabled, setShazamDisabled] = useState<boolean>(true);
-  const [enableShazamModal, setEnableShazamModal] = useState<boolean>(false);
-  const [searchSongInfo, setSearchSongInfo] = useState<SearchSongType>({
-    songName: "",
-    singers: "",
-    songAlbumArt: "",
-    songPreviewUrl: "",
-    songAlbum: "",
-    songRelease: "",
-    songShazamMusic: "",
-    songYoutubeMusic: "",
-  });
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    setScreenWidth(window.innerWidth - 30);
-    setScreenHeight(window.innerHeight - 200);
-    Modal.setAppElement("body");
-  }, []);
+import ShazamResultsModal from "src/components/shazamResultsModal";
+import Music_2_ViewModel from "src/viewModels/music_2";
 
-  const audioRef = useRef<AudioPlayer>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
-  function loadAudio(event: ChangeEvent<HTMLInputElement>): void {
-    if (!event.target.files) return;
-    setShazamDisabled(false);
-    URL.revokeObjectURL(audioRef.current!.audioEl.current!.src);
-    audioRef.current!.audioEl.current!.src = URL.createObjectURL(
-      event.target.files[0]
-    );
-  }
-  const searchMutation = useMutation({
-    mutationFn: (body: FormData) => shazamSearch(body),
-  });
-  function onSubmitSearch(data: shazamSearchInterface) {
-    console.log(data.upload_file);
-    const formData = new FormData();
-    formData.append("filename", data.upload_file.name);
-    formData.append("upload_file", data.upload_file);
-    searchMutation.mutate(formData, {
-      onSuccess: (data) => {
-        const songName = data.data.songName,
-          singers = data.data.singers,
-          songAlbumArt = data.data.songAlbumArt,
-          songPreviewUrl = data.data.songPreviewUrl,
-          songAlbum = data.data.songAlbum,
-          songRelease = data.data.songRelease,
-          songShazamMusic = data.data.songShazamMusic,
-          songYoutubeMusic = data.data.songYoutubeMusic;
-        setSearchSongInfo({
-          songName,
-          singers,
-          songAlbumArt,
-          songPreviewUrl,
-          songAlbum,
-          songRelease,
-          songShazamMusic,
-          songYoutubeMusic,
-        });
-      },
-      onError: (error) => console.log(error),
-    });
-  }
+export default function Music_2() {
+  const {
+    inputRef,
+    loadAudio,
+    audioRef,
+    shazamDisabled,
+    setEnableShazamModal,
+    onSubmitSearch,
+    screenHeight,
+    screenWidth,
+    searchMutation,
+    searchSongInfo,
+    enableShazamModal,
+  } = Music_2_ViewModel();
   return (
     <main className="mx-[5rem] my-[8rem]">
       <input

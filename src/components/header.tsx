@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import Timer from "./timer";
-import WebName from "./webName";
+import Timer from "src/components/timer";
+import WebName from "src/components/webName";
 
 export default function Header() {
   return (

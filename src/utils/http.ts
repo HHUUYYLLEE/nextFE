@@ -1,12 +1,12 @@
 import axios from "axios";
-import HttpStatusCode from "../constants/httpStatusCode.enum";
+import HttpStatusCode from "src/constants/httpStatusCode.enum";
 import {
   clearAccessTokenFromLS,
   getAccessTokenFromLS,
   saveAccessTokenToLS,
   saveInfoToLS,
-} from "./auth";
-import { envConfig } from "./env";
+} from "src/utils/auth";
+import { envConfig } from "src/utils/env";
 
 const applicationJSONInstance = axios.create({
   baseURL: envConfig.deployURL,

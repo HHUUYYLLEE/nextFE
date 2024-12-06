@@ -1,9 +1,9 @@
 import Image from "next/image";
-import { GithubStatsUrls } from "@/constants/githubstatsurl";
+import { GithubStatsUrls } from "src/constants/githubstatsurl";
 import {
   RevealAnimationLeftToRight,
   RevealAnimationRightToLeft,
-} from "../(animationTemplates)/revealAnimation";
+} from "src/components/animationTemplates/revealAnimation";
 
 export default function GithubStats() {
   return (

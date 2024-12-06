@@ -1,10 +1,6 @@
 "use client";
-import localFont from "next/font/local";
 import { useEffect, useState } from "react";
-
-const segmented14Font = localFont({
-  src: "../../../../public/fonts/DSEG14Modern-Italic.woff",
-});
+import { segmented14 } from "src/constants/fonts";
 export default function WebName() {
   const [switchState, setSwitchState] = useState<boolean[]>(
     Array(10).fill(true)
@@ -29,7 +25,7 @@ export default function WebName() {
       <div
         className={
           "absolute sm:text-3xl text-xl italic text-[rgba(194,206,206,0.05)] " +
-          segmented14Font.className
+          segmented14.className
         }
       >
         ~~~~~~~~~~
@@ -38,7 +34,7 @@ export default function WebName() {
         <span
           className={
             `transition duration-300 ${switchState[0] ? "" : "opacity-20"} ` +
-            segmented14Font.className
+            segmented14.className
           }
         >
           H
@@ -46,7 +42,7 @@ export default function WebName() {
         <span
           className={
             `transition duration-300 ${switchState[1] ? "" : "opacity-20"} ` +
-            segmented14Font.className
+            segmented14.className
           }
         >
           H
@@ -54,7 +50,7 @@ export default function WebName() {
         <span
           className={
             `transition duration-300 ${switchState[2] ? "" : "opacity-20"} ` +
-            segmented14Font.className
+            segmented14.className
           }
         >
           U
@@ -62,7 +58,7 @@ export default function WebName() {
         <span
           className={
             `transition duration-300 ${switchState[3] ? "" : "opacity-20"} ` +
-            segmented14Font.className
+            segmented14.className
           }
         >
           U
@@ -70,7 +66,7 @@ export default function WebName() {
         <span
           className={
             `transition duration-300 ${switchState[4] ? "" : "opacity-20"} ` +
-            segmented14Font.className
+            segmented14.className
           }
         >
           Y
@@ -78,7 +74,7 @@ export default function WebName() {
         <span
           className={
             `transition duration-300 ${switchState[5] ? "" : "opacity-20"} ` +
-            segmented14Font.className
+            segmented14.className
           }
         >
           Y
@@ -86,7 +82,7 @@ export default function WebName() {
         <span
           className={
             `transition duration-300 ${switchState[6] ? "" : "opacity-20"} ` +
-            segmented14Font.className
+            segmented14.className
           }
         >
           L
@@ -94,7 +90,7 @@ export default function WebName() {
         <span
           className={
             `transition duration-300 ${switchState[7] ? "" : "opacity-20"} ` +
-            segmented14Font.className
+            segmented14.className
           }
         >
           L
@@ -102,7 +98,7 @@ export default function WebName() {
         <span
           className={
             `transition duration-300 ${switchState[8] ? "" : "opacity-20"} ` +
-            segmented14Font.className
+            segmented14.className
           }
         >
           E
@@ -110,7 +106,7 @@ export default function WebName() {
         <span
           className={
             `transition duration-300 ${switchState[9] ? "" : "opacity-20"} ` +
-            segmented14Font.className
+            segmented14.className
           }
         >
           E

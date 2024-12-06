@@ -1,9 +1,9 @@
 import Image from "next/image";
-import Info from "./(components)/info";
-import QRCodes from "./(components)/qrCodes";
-import ProgLangMarquee from "./(components)/progLangMarquee";
-import GithubStats from "./(components)/githubStats";
-import Features from "./(components)/features";
+import Info from "src/components/info";
+import QRCodes from "src/components/qrCodes";
+import ProgLangMarquee from "src/components/progLangMarquee";
+import GithubStats from "src/components/githubStats";
+import Features from "src/components/features";
 export default function Home() {
   return (
     <main className="mx-[5rem] my-[8rem]">

@@ -1,13 +1,10 @@
 import Image from "next/image";
-import localFont from "next/font/local";
+import { chopinScriptFont } from "src/constants/fonts";
 import {
   RevealAnimationBottomToTop,
   RevealAnimationTopToBottom,
-} from "../(animationTemplates)/revealAnimation";
+} from "src/components/animationTemplates/revealAnimation";
 import Link from "next/link";
-const chopinScriptFont = localFont({
-  src: "../../../../public/fonts/ChopinScript.ttf",
-});
 
 const duration = 0.7;
 export default function Features() {

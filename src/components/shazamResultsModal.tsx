@@ -3,7 +3,7 @@ import Modal from "react-modal";
 import AudioPlayer from "react-audio-player";
 import { Dispatch, SetStateAction } from "react";
 import Image from "next/image";
-import { SearchSongType } from "@/types/types";
+import { SearchSongType } from "src/types/types";
 
 export default function ShazamResultsModal({
   setEnableShazamModal,

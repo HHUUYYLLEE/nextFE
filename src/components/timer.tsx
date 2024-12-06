@@ -1,14 +1,7 @@
 "use client";
 import { DateTime } from "luxon";
 import { useRef, useEffect } from "react";
-import localFont from "next/font/local";
-const segmented7 = localFont({
-  src: "../../../../public/fonts/DSEG7Classic-Bold.woff",
-});
-const segmented14 = localFont({
-  src: "../../../../public/fonts/DSEG14Modern-Italic.woff",
-});
-
+import { segmented7, segmented14 } from "src/constants/fonts";
 export default function Timer() {
   const div = useRef<HTMLSpanElement>(null),
     seconds = useRef<HTMLSpanElement>(null),

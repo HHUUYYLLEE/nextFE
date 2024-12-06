@@ -1,4 +1,4 @@
-import { keyInfoInterface } from "@/types/types";
+import { keyInfoInterface } from "src/types/types";
 export const saveAccessTokenToLS = (access_token: string | undefined): void => {
   if (access_token !== undefined && typeof window !== "undefined")
     localStorage.setItem("access_token", access_token);
