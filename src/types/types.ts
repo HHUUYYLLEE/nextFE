@@ -13,5 +13,12 @@ export interface shazamSearchInterface {
   upload_file: File;
 }
 export interface SearchSongType {
-  [index: string]: string;
+  songName: string;
+  singers: string;
+  songAlbumArt: string;
+  songPreviewUrl: string;
+  songAlbum: string;
+  songRelease: string;
+  songShazamMusic: string;
+  songYoutubeMusic: string;
 }

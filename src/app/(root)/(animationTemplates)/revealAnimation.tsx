@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
 interface Props {
-  children: JSX.Element;
+  children: React.ReactElement;
   duration: number;
   delay: number;
 }

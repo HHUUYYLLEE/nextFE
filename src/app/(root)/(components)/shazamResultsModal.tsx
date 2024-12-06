@@ -1,7 +1,7 @@
 "use client";
 import Modal from "react-modal";
 import AudioPlayer from "react-audio-player";
-import { Dispatch, SetStateAction, useEffect } from "react";
+import { Dispatch, SetStateAction } from "react";
 import Image from "next/image";
 import { SearchSongType } from "@/types/types";
 

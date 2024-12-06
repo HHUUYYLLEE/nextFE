@@ -3,14 +3,7 @@ import AudioPlayer from "react-audio-player";
 import { FaFileAudio } from "react-icons/fa";
 import { SiShazam } from "react-icons/si";
 import { MdFileUpload } from "react-icons/md";
-import {
-  ChangeEvent,
-  Dispatch,
-  SetStateAction,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 
 import ReactAudioSpectrum from "react-audio-spectrum";
 import { useMutation } from "@tanstack/react-query";
@@ -23,7 +16,16 @@ export default function Music_2() {
   const [screenHeight, setScreenHeight] = useState<number>(0);
   const [shazamDisabled, setShazamDisabled] = useState<boolean>(true);
   const [enableShazamModal, setEnableShazamModal] = useState<boolean>(false);
-  const [searchSongInfo, setSearchSongInfo] = useState<SearchSongType>({});
+  const [searchSongInfo, setSearchSongInfo] = useState<SearchSongType>({
+    songName: "",
+    singers: "",
+    songAlbumArt: "",
+    songPreviewUrl: "",
+    songAlbum: "",
+    songRelease: "",
+    songShazamMusic: "",
+    songYoutubeMusic: "",
+  });
   useEffect(() => {
     window.scrollTo(0, 0);
     setScreenWidth(window.innerWidth - 30);
@@ -45,35 +47,20 @@ export default function Music_2() {
     mutationFn: (body: FormData) => shazamSearch(body),
   });
   function onSubmitSearch(data: shazamSearchInterface) {
+    console.log(data.upload_file);
     const formData = new FormData();
+    formData.append("filename", data.upload_file.name);
     formData.append("upload_file", data.upload_file);
     searchMutation.mutate(formData, {
       onSuccess: (data) => {
-        console.log(data);
-        const songName = data.data.track.title || "???",
-          singers = data.data.track.subtitle || "???",
-          songAlbumArt = data.data.track.images.coverart || "#",
-          songPreviewUrl =
-            typeof data.data.track.hub.actions !== "undefined"
-              ? data.data.track.hub.actions[1].uri
-              : "#",
-          songAlbum =
-            data.data.track.sections
-              .find((element: any) => element.type === "SONG")
-              ?.metadata.find((element: any) => element.title === "Album")
-              ?.text || "???",
-          songRelease =
-            data.data.track.sections
-              .find((element: any) => element.type === "SONG")
-              ?.metadata.find((element: any) => element.title === "Released")
-              ?.text || "???",
-          songShazamMusic = data.data.track.url || "#",
-          songYoutubeMusic =
-            typeof data.data.track.hub.providers !== "undefined"
-              ? data.data.track.hub.providers.find(
-                  (element: any) => element.type === "YOUTUBEMUSIC"
-                )?.actions[0].uri
-              : "#";
+        const songName = data.data.songName,
+          singers = data.data.singers,
+          songAlbumArt = data.data.songAlbumArt,
+          songPreviewUrl = data.data.songPreviewUrl,
+          songAlbum = data.data.songAlbum,
+          songRelease = data.data.songRelease,
+          songShazamMusic = data.data.songShazamMusic,
+          songYoutubeMusic = data.data.songYoutubeMusic;
         setSearchSongInfo({
           songName,
           singers,
