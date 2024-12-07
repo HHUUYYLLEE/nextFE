@@ -21,7 +21,7 @@ export default function QRCodes() {
       <div className="flex justify-center">
         <Image
           alt=""
-          src="/images/phonemoney.png"
+          src="/icons/phonemoney.png"
           width={90}
           height={90}
           draggable="false"

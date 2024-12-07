@@ -15,7 +15,7 @@ export default function Footer() {
                 className="flex items-center gap-x-3 [&>div]:hover:underline"
               >
                 <Image
-                  src="/images/facebook.png"
+                  src="/icons/facebook.png"
                   alt=""
                   width={20}
                   height={20}
@@ -25,11 +25,11 @@ export default function Footer() {
             </div>
 
             <div className="flex mt-[0.5rem] items-center gap-x-3">
-              <Image src="/images/email.png" alt="" width={20} height={20} />
+              <Image src="/icons/email.png" alt="" width={20} height={20} />
               <div className="pointer-events-none">lebahuybk@gmail.com</div>
             </div>
             <div className="flex mt-[0.5rem] items-center gap-x-3">
-              <Image src="/images/phone.png" alt="" width={20} height={20} />
+              <Image src="/icons/phone.png" alt="" width={20} height={20} />
               <div className="pointer-events-none">0833471885</div>
             </div>
           </address>
@@ -41,7 +41,7 @@ export default function Footer() {
           <address>
             <div className="sm:flex sm:mt-[1.5rem] sm:items-center sm:gap-x-3">
               <Image
-                src="/images/pinlocation.png"
+                src="/icons/pinlocation.png"
                 alt=""
                 width={20}
                 height={5}

@@ -6,6 +6,7 @@ import { MdFileUpload } from "react-icons/md";
 import ReactAudioSpectrum from "react-audio-spectrum";
 import ShazamResultsModal from "src/components/shazamResultsModal";
 import Music_2_ViewModel from "src/viewModels/music_2";
+import Loading from "src/components/loading";
 
 export default function Music_2() {
   const {
@@ -15,6 +16,7 @@ export default function Music_2() {
     loadAudioFromUrl,
     inputURLRef,
     audioRef,
+    audioURLMutation,
     shazamDisabled,
     setEnableShazamModal,
     onSubmitSearch,
@@ -136,6 +138,7 @@ export default function Music_2() {
           searchSongInfo={searchSongInfo}
         />
       )}
+      {audioURLMutation.isPending && <Loading />}
     </main>
   );
 }

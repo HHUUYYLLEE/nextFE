@@ -60,7 +60,8 @@ export default function Random_Images_Generator() {
       <div className="flex justify-center mt-[2rem]">
         <button
           className="text-white bg-blue-700 rounded-md px-[2rem] py-[0.5rem]
-        hover:bg-green-600"
+        hover:enabled:bg-green-600 disabled:bg-gray-800 disabled:text-gray-600"
+          disabled={isFetching || loadingImg ? true : false}
           onClick={() => refetch()}
         >
           Get random image

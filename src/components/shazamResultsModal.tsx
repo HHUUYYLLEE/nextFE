@@ -48,7 +48,9 @@ export default function ShazamResultsModal({
           },
         }}
         isOpen={true}
-        onRequestClose={() => setEnableShazamModal(false)}
+        onRequestClose={() => {
+          !isPending && setEnableShazamModal(false);
+        }}
       >
         <div
           className={`bg-[#0d3850] ${
@@ -133,7 +135,7 @@ export default function ShazamResultsModal({
                       rel="noopener noreferrer"
                     >
                       <Image
-                        src="/images/shazam_icon.png"
+                        src="/icons/shazam_icon.png"
                         width={2048}
                         height={2048}
                         alt=""
@@ -150,7 +152,7 @@ export default function ShazamResultsModal({
                       rel="noopener noreferrer"
                     >
                       <Image
-                        src="/images/youtubemusic-icon.png"
+                        src="/icons/youtubemusic-icon.png"
                         width={2048}
                         height={2048}
                         alt=""

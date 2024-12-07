@@ -45,6 +45,7 @@ export default function Music_2_ViewModel() {
     mutationFn: (body: FormData) => getAudioBuffer(body),
   });
   async function loadAudioFromUrl(url: string): Promise<void> {
+    setShazamDisabled(true);
     URL.revokeObjectURL(audioRef.current!.audioEl.current!.src);
     const formData = new FormData();
     formData.append("url", url);
@@ -70,6 +71,7 @@ export default function Music_2_ViewModel() {
   });
   function onSubmitSearch(data: shazamSearchInterface) {
     console.log(data.upload_file);
+    setShazamDisabled(true);
     const formData = new FormData();
     formData.append("filename", data.upload_file.name);
     formData.append("upload_file", data.upload_file);
@@ -93,8 +95,12 @@ export default function Music_2_ViewModel() {
           songShazamMusic,
           songYoutubeMusic,
         });
+        setShazamDisabled(false);
       },
-      onError: (error) => console.log(error),
+      onError: (error) => {
+        console.log(error);
+        setShazamDisabled(false);
+      },
     });
   }
   return {
@@ -103,6 +109,7 @@ export default function Music_2_ViewModel() {
     audioFile,
     loadAudioFromUrl,
     loadAudio,
+    audioURLMutation,
     audioRef,
     shazamDisabled,
     setEnableShazamModal,

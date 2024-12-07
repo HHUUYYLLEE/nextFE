@@ -8,7 +8,7 @@ export default function ProgLangMarquee() {
           <a href="https://react.dev/">
             <Image
               alt=""
-              src="/images/react.png"
+              src="/icons/react.png"
               width={90}
               height={90}
               draggable="false"
@@ -17,7 +17,7 @@ export default function ProgLangMarquee() {
           <a href="https://nextjs.org/">
             <Image
               alt=""
-              src="/images/nextjs.png"
+              src="/icons/nextjs.png"
               width={90}
               height={90}
               draggable="false"
@@ -26,7 +26,7 @@ export default function ProgLangMarquee() {
           <a href="https://expressjs.com/">
             <Image
               alt=""
-              src="/images/expressjs.png"
+              src="/icons/expressjs.png"
               width={90}
               height={90}
               draggable="false"
@@ -35,7 +35,7 @@ export default function ProgLangMarquee() {
           <a href="https://nestjs.com/">
             <Image
               alt=""
-              src="/images/nestjs.png"
+              src="/icons/nestjs.png"
               width={90}
               height={90}
               draggable="false"
@@ -44,7 +44,7 @@ export default function ProgLangMarquee() {
           <a href="https://www.mongodb.com/docs/">
             <Image
               alt=""
-              src="/images/mongodb.png"
+              src="/icons/mongodb.png"
               width={90}
               height={90}
               draggable="false"

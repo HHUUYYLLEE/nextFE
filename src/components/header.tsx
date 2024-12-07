@@ -14,7 +14,7 @@ export default function Header() {
           <div className="flex items-center">
             <div className="ml-[0.7rem]">
               <Image
-                src="/images/logo.png"
+                src="/icons/logo.png"
                 width={70}
                 height={70}
                 alt=""

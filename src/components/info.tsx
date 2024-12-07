@@ -9,7 +9,7 @@ export default function Info() {
       >
         <Image
           alt=""
-          src="/images/phonering.gif"
+          src="/icons/phonering.gif"
           width={35}
           height={35}
           draggable="false"
@@ -24,7 +24,7 @@ export default function Info() {
       >
         <Image
           alt=""
-          src="/images/facebookgif.gif"
+          src="/icons/facebookgif.gif"
           width={35}
           height={35}
           draggable="false"
@@ -38,7 +38,7 @@ export default function Info() {
       >
         <Image
           alt=""
-          src="/images/newemail.gif"
+          src="/icons/newemail.gif"
           width={35}
           height={35}
           draggable="false"
@@ -55,7 +55,7 @@ export default function Info() {
       >
         <Image
           alt=""
-          src="/images/github.png"
+          src="/icons/github.png"
           width={35}
           height={35}
           draggable="false"

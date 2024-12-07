@@ -27,7 +27,7 @@ export default function Music_1() {
       {!playMusic && (
         <Image
           alt=""
-          src="/images/playbutton.gif"
+          src="/icons/playbutton.gif"
           height={0}
           width={0}
           sizes="100vw"

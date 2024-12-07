@@ -17,13 +17,13 @@ export default function Error() {
       <div className="flex justify-center w-full">
         <Image
           alt=""
-          src="/images/errordetectphone.png"
+          src="/icons/errordetectphone.png"
           width={150}
           height={150}
         />
         <Image
           alt=""
-          src="/images/errordetecttablet.png"
+          src="/icons/errordetecttablet.png"
           width={150}
           height={150}
         />

@@ -5,7 +5,7 @@ import {
   RevealAnimationTopToBottom,
 } from "src/components/animationTemplates/revealAnimation";
 import Link from "next/link";
-
+import { SiShazam } from "react-icons/si";
 const duration = 0.7;
 export default function Features() {
   return (
@@ -114,7 +114,13 @@ export default function Features() {
                 }
                 draggable="false"
               >
-                2
+                <SiShazam
+                  style={{
+                    color: "0088ff",
+                    width: 35,
+                    height: 35,
+                  }}
+                />
               </div>
             </Link>
           </div>
