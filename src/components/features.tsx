@@ -94,10 +94,8 @@ export default function Features() {
               className="border-r-2 flex justify-center w-full hover:bg-[#585757]"
             >
               <div
-                className={
-                  " text-white text-[2rem] select-none " +
-                  chopinScriptFont.className
-                }
+                className={` text-white text-[2rem] select-none 
+                  ${chopinScriptFont.className}`}
                 draggable="false"
               >
                 1
@@ -108,10 +106,7 @@ export default function Features() {
               className="flex justify-center w-full hover:bg-[#585757]"
             >
               <div
-                className={
-                  " text-white text-[2rem] select-none " +
-                  chopinScriptFont.className
-                }
+                className="text-white text-[2rem] select-none flex items-center"
                 draggable="false"
               >
                 <SiShazam
