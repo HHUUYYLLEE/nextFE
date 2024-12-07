@@ -9,6 +9,10 @@ export interface randomImageInterface {
   message: string;
   url: string;
 }
+export interface audioURLInterface {
+  message: string;
+  url: string | undefined;
+}
 export interface shazamSearchInterface {
   upload_file: File;
 }

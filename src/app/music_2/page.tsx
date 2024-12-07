@@ -10,7 +10,10 @@ import Music_2_ViewModel from "src/viewModels/music_2";
 export default function Music_2() {
   const {
     inputRef,
+    audioFile,
     loadAudio,
+    loadAudioFromUrl,
+    inputURLRef,
     audioRef,
     shazamDisabled,
     setEnableShazamModal,
@@ -31,15 +34,39 @@ export default function Music_2() {
         onChange={(event) => loadAudio(event)}
       />
       <div className="flex gap-x-4">
+        <input
+          ref={inputURLRef}
+          type="text"
+          placeholder="URL of song file, or upload a file below..."
+          className="rounded-lg focus:outline-none border-none px-[0.6rem] py-[0.8rem] placeholder:text-[#ffffff67] text-white
+          bg-gray-800 w-full placeholder:text-center text-center"
+        />
+        <button
+          className="text-white rounded-lg hover:bg-[#0f8e9566] bg-[#4444444f] px-[2rem] text-center py-[0.5rem]"
+          onClick={() => loadAudioFromUrl(inputURLRef.current!.value)}
+          title="Load song from url"
+        >
+          <MdFileUpload
+            style={{
+              color: "ffc300",
+              width: 35,
+              height: 35,
+              rotate: "235deg",
+            }}
+          />
+        </button>
+      </div>
+      <div className="flex gap-x-4 mt-2 items-center">
         <AudioPlayer
-          className="w-full"
+          crossOrigin="anonymous"
+          className="w-full h-[2rem]"
           id="audio-element"
           ref={audioRef}
           controls
         />
         <button
           className="text-white rounded-lg hover:bg-[#0f8e9566] bg-[#4444444f] px-[2rem] flex justify-center py-[0.5rem]"
-          onClick={() => inputRef.current?.click()}
+          onClick={() => inputRef.current!.click()}
           title="Upload a song"
         >
           <MdFileUpload
@@ -63,7 +90,7 @@ export default function Music_2() {
           }  px-[2rem] flex justify-center py-[0.5rem]`}
           onClick={() => {
             setEnableShazamModal(true);
-            onSubmitSearch({ upload_file: inputRef.current!.files![0] });
+            onSubmitSearch({ upload_file: audioFile });
           }}
           title="Shazam search"
           disabled={shazamDisabled ? true : false}

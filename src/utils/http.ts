@@ -13,6 +13,8 @@ const applicationJSONInstance = axios.create({
   headers: {
     "Content-Type": "application/json",
   },
+  maxBodyLength: Infinity,
+  maxContentLength: Infinity,
 });
 
 const multipartFormInstance = axios.create({
