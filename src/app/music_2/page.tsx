@@ -127,7 +127,7 @@ export default function Music_2() {
           />
         </div>
       ) : (
-        <div className={`h-[70vh]`}></div>
+        <div className="h-[70vh]"></div>
       )}
       {enableShazamModal && (
         <ShazamResultsModal
