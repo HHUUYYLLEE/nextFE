@@ -4,6 +4,7 @@ import QRCodes from "src/components/qrCodes";
 import ProgLangMarquee from "src/components/progLangMarquee";
 import GithubStats from "src/components/githubStats";
 import Features from "src/components/features";
+
 export default function Home() {
   return (
     <main className="mx-[5rem] my-[8rem]">
