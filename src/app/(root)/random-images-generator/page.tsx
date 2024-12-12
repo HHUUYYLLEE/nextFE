@@ -14,7 +14,7 @@ export default function Random_Images_Generator() {
     refetch,
   } = Random_Images_Generator_ViewModel();
   return (
-    <main className="mx-[5rem] my-[8rem]">
+    <div className="mx-[5rem] my-[8rem]">
       <div className="text-white flex justify-center font-lexend-400 text-[3rem]">
         Random Images Generator
       </div>
@@ -68,6 +68,6 @@ export default function Random_Images_Generator() {
           Get random image
         </button>
       </div>
-    </main>
+    </div>
   );
 }

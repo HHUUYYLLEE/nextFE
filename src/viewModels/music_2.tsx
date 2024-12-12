@@ -36,11 +36,10 @@ export default function Music_2_ViewModel() {
     (event: ChangeEvent<HTMLInputElement>) => {
       if (!event.target.files) return;
       setShazamDisabled(false);
+      const tempFile = event.target.files[0];
       URL.revokeObjectURL(audioRef.current!.audioEl.current!.src);
-      setAudioFile(event.target.files[0]);
-      audioRef.current!.audioEl.current!.src = URL.createObjectURL(
-        event.target.files[0]
-      );
+      setAudioFile(tempFile);
+      audioRef.current!.audioEl.current!.src = URL.createObjectURL(tempFile);
     },
     []
   );

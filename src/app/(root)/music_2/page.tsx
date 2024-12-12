@@ -27,7 +27,7 @@ export default function Music_2() {
     enableShazamModal,
   } = Music_2_ViewModel();
   return (
-    <main className="mx-[5rem] my-[8rem]">
+    <div className="mx-[5rem] my-[8rem]">
       <input
         ref={inputRef}
         type="file"
@@ -139,6 +139,6 @@ export default function Music_2() {
         />
       )}
       {audioURLMutation.isPending && <Loading />}
-    </main>
+    </div>
   );
 }

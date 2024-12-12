@@ -7,7 +7,7 @@ import Features from "src/components/features";
 
 export default function Home() {
   return (
-    <main className="mx-[5rem] my-[8rem]">
+    <div className="mx-[5rem] my-[8rem]">
       <div className="flex gap-x-[10rem]">
         <div className="flex gap-x-5">
           <div className="">
@@ -32,6 +32,6 @@ export default function Home() {
       <div className="mt-[6rem]">
         <Features />
       </div>
-    </main>
+    </div>
   );
 }

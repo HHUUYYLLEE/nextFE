@@ -5,7 +5,7 @@ import QR_Codes_Generator_ViewModel from "src/viewModels/qr-codes-generator";
 export default function QR_Codes_Generator() {
   const { value, setValue } = QR_Codes_Generator_ViewModel();
   return (
-    <main className="mx-[5rem] my-[8rem]">
+    <div className="mx-[5rem] my-[8rem]">
       <div className="text-white flex justify-center font-lexend-400 text-[3rem]">
         QR Codes Generator
       </div>
@@ -25,6 +25,6 @@ export default function QR_Codes_Generator() {
           <QRCode value={value} size={350} ecLevel="Q" />
         </div>
       </div>
-    </main>
+    </div>
   );
 }

@@ -38,7 +38,7 @@ export default function O_O_ViewModel() {
     loadedAudio,
     loadedImage,
     setModal,
-    playAudioCallback,
     hideGif,
+    playAudioCallback,
   };
 }

@@ -4,9 +4,7 @@ export default function Music_1_ViewModel() {
   const [screenWidth, setScreenWidth] = useState<number>(0);
   const [screenHeight, setScreenHeight] = useState<number>(0);
   const audioRef = useRef<HTMLAudioElement>(null);
-  const playAudioCallback = useCallback(() => {
-    if (audioRef.current) audioRef.current.play();
-  }, []);
+  const playAudioCallback = useCallback(() => audioRef.current?.play(), []);
   useEffect(() => {
     setScreenWidth(window.innerWidth - 30);
     setScreenHeight(window.innerHeight - 200);

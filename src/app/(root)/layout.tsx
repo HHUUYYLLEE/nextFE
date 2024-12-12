@@ -30,15 +30,11 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className + " bg-[#12101b] "}>
-        <div className="">
-          <Header />
-        </div>
-        <div className="">
+        <Header />
+        <main>
           <Providers>{children}</Providers>
-        </div>
-        <div className="bg-gray-800">
-          <Footer />
-        </div>
+        </main>
+        <Footer />
       </body>
     </html>
   );

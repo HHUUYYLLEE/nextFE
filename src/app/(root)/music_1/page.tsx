@@ -14,7 +14,7 @@ export default function Music_1() {
     changeMusic,
   } = Music_1_ViewModel();
   return (
-    <main className="mx-[5rem] my-[8rem]">
+    <div className="mx-[5rem] my-[8rem]">
       <audio
         id="audio-element"
         ref={audioRef}
@@ -59,6 +59,6 @@ export default function Music_1() {
       ) : (
         <div className={`h-[70vh]`}></div>
       )}
-    </main>
+    </div>
   );
 }

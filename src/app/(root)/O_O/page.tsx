@@ -26,7 +26,7 @@ export default function O_O() {
 
   return (
     <>
-      <main className="mx-[5rem] my-[8rem]">
+      <div className="mx-[5rem] my-[8rem]">
         <audio
           ref={audioRef}
           onEnded={() => setHideGif(true)}
@@ -49,7 +49,7 @@ export default function O_O() {
           quality={100}
           priority
         />
-      </main>
+      </div>
       <Modal
         style={{
           overlay: {
