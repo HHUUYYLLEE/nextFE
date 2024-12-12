@@ -3,7 +3,7 @@ import { useMutation } from "@tanstack/react-query";
 import { shazamSearch } from "src/api/shazamSearch";
 import { shazamSearchInterface, SearchSongType } from "src/types/types";
 import Modal from "react-modal";
-import { ChangeEvent, useEffect, useRef, useState } from "react";
+import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
 import AudioPlayer from "react-audio-player";
 import { getAudioBuffer } from "src/api/audioURL";
 export default function Music_2_ViewModel() {
@@ -32,88 +32,101 @@ export default function Music_2_ViewModel() {
     Modal.setAppElement("body");
   }, []);
 
-  function loadAudio(event: ChangeEvent<HTMLInputElement>): void {
-    if (!event.target.files) return;
-    setShazamDisabled(false);
-    URL.revokeObjectURL(audioRef.current!.audioEl.current!.src);
-    setAudioFile(event.target.files[0]);
-    audioRef.current!.audioEl.current!.src = URL.createObjectURL(
-      event.target.files[0]
-    );
-  }
+  const loadAudioCallback = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      if (!event.target.files) return;
+      setShazamDisabled(false);
+      URL.revokeObjectURL(audioRef.current!.audioEl.current!.src);
+      setAudioFile(event.target.files[0]);
+      audioRef.current!.audioEl.current!.src = URL.createObjectURL(
+        event.target.files[0]
+      );
+    },
+    []
+  );
+
   const audioURLMutation = useMutation({
     mutationFn: (body: FormData) => getAudioBuffer(body),
   });
-  async function loadAudioFromUrl(url: string): Promise<void> {
-    setShazamDisabled(true);
-    URL.revokeObjectURL(audioRef.current!.audioEl.current!.src);
-    const formData = new FormData();
-    formData.append("url", url);
-    audioURLMutation.mutate(formData, {
-      onSuccess: (data: any) => {
-        const audioFile = new File(
-          [
-            new Blob([Buffer.from(data.data.buffer, "utf-8")], {
-              type: "audio/*",
-            }),
-          ],
-          "temp"
-        );
-        setAudioFile(audioFile);
-        audioRef.current!.audioEl.current!.src = URL.createObjectURL(audioFile);
-        setShazamDisabled(false);
-      },
-      onError: (error) => console.log(error),
-    });
-  }
+  const loadAudioFromUrlCallback = useCallback(
+    (url: string) => {
+      setShazamDisabled(true);
+      URL.revokeObjectURL(audioRef.current!.audioEl.current!.src);
+      const formData = new FormData();
+      formData.append("url", url);
+      audioURLMutation.mutate(formData, {
+        onSuccess: (data: any) => {
+          const audioFile = new File(
+            [
+              new Blob([Buffer.from(data.data.buffer, "utf-8")], {
+                type: "audio/*",
+              }),
+            ],
+            "temp"
+          );
+          setAudioFile(audioFile);
+          audioRef.current!.audioEl.current!.src =
+            URL.createObjectURL(audioFile);
+          setShazamDisabled(false);
+        },
+        onError: (error) => console.log(error),
+      });
+    },
+    [audioURLMutation]
+  );
+
   const searchMutation = useMutation({
     mutationFn: (body: FormData) => shazamSearch(body),
   });
-  function onSubmitSearch(data: shazamSearchInterface) {
-    console.log(data.upload_file);
-    setShazamDisabled(true);
-    const formData = new FormData();
-    formData.append("filename", data.upload_file.name);
-    formData.append("upload_file", data.upload_file);
-    searchMutation.mutate(formData, {
-      onSuccess: (data: any) => {
-        const songName = data.data.songName,
-          singers = data.data.singers,
-          songAlbumArt = data.data.songAlbumArt,
-          songPreviewUrl = data.data.songPreviewUrl,
-          songAlbum = data.data.songAlbum,
-          songRelease = data.data.songRelease,
-          songShazamMusic = data.data.songShazamMusic,
-          songYoutubeMusic = data.data.songYoutubeMusic;
-        setSearchSongInfo({
-          songName,
-          singers,
-          songAlbumArt,
-          songPreviewUrl,
-          songAlbum,
-          songRelease,
-          songShazamMusic,
-          songYoutubeMusic,
-        });
-        setShazamDisabled(false);
-      },
-      onError: (error) => {
-        console.log(error);
-        setShazamDisabled(false);
-      },
-    });
-  }
+  const onSubmitSearchCallback = useCallback(
+    (data: shazamSearchInterface) => {
+      console.log(data.upload_file);
+      setShazamDisabled(true);
+      const formData = new FormData();
+      formData.append("filename", data.upload_file.name);
+      formData.append("upload_file", data.upload_file);
+      searchMutation.mutate(formData, {
+        onSuccess: (data: any) => {
+          const songName = data.data.songName,
+            singers = data.data.singers,
+            songAlbumArt = data.data.songAlbumArt,
+            songPreviewUrl = data.data.songPreviewUrl,
+            songAlbum = data.data.songAlbum,
+            songRelease = data.data.songRelease,
+            songShazamMusic = data.data.songShazamMusic,
+            songYoutubeMusic = data.data.songYoutubeMusic;
+          setSearchSongInfo({
+            songName,
+            singers,
+            songAlbumArt,
+            songPreviewUrl,
+            songAlbum,
+            songRelease,
+            songShazamMusic,
+            songYoutubeMusic,
+          });
+          setShazamDisabled(false);
+        },
+        onError: (error) => {
+          console.log(error);
+          setShazamDisabled(false);
+        },
+      });
+    },
+    [searchMutation]
+  );
+
   return {
     inputRef,
     inputURLRef,
     audioFile,
-    loadAudioFromUrl,
-    loadAudio,
+    loadAudioFromUrlCallback,
+    loadAudioCallback,
     audioURLMutation,
     audioRef,
     shazamDisabled,
     setEnableShazamModal,
-    onSubmitSearch,
+    onSubmitSearchCallback,
     screenHeight,
     screenWidth,
     searchMutation,

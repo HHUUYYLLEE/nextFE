@@ -26,6 +26,7 @@ export default function Random_Images_Generator() {
             }`}
           >
             <Image
+              unoptimized
               onLoad={() => setLoadingImg(false)}
               ref={imageRef}
               alt=""

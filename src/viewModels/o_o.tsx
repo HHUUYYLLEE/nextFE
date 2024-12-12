@@ -1,6 +1,6 @@
 "use client";
 import Modal from "react-modal";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 export default function O_O_ViewModel() {
   const [screenWidth, setScreenWidth] = useState<number>(0);
   const [screenHeight, setScreenHeight] = useState<number>(0);
@@ -20,9 +20,10 @@ export default function O_O_ViewModel() {
   }, []);
 
   const audioRef = useRef<HTMLAudioElement>(null);
-  function playAudio(): void {
+  const playAudioCallback = useCallback(() => {
     if (audioRef.current) audioRef.current.play();
-  }
+  }, []);
+
   return {
     audioRef,
     setHideGif,
@@ -37,7 +38,7 @@ export default function O_O_ViewModel() {
     loadedAudio,
     loadedImage,
     setModal,
-    playAudio,
+    playAudioCallback,
     hideGif,
   };
 }

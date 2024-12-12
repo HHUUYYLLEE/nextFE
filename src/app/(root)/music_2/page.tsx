@@ -12,14 +12,14 @@ export default function Music_2() {
   const {
     inputRef,
     audioFile,
-    loadAudio,
-    loadAudioFromUrl,
+    loadAudioCallback,
+    loadAudioFromUrlCallback,
     inputURLRef,
     audioRef,
     audioURLMutation,
     shazamDisabled,
     setEnableShazamModal,
-    onSubmitSearch,
+    onSubmitSearchCallback,
     screenHeight,
     screenWidth,
     searchMutation,
@@ -33,7 +33,7 @@ export default function Music_2() {
         type="file"
         accept=".wav, .mp3, .ogg, .flac, .aac"
         className="hidden"
-        onChange={(event) => loadAudio(event)}
+        onChange={(event) => loadAudioCallback(event)}
       />
       <div className="flex gap-x-4">
         <input
@@ -45,7 +45,7 @@ export default function Music_2() {
         />
         <button
           className="text-white rounded-lg hover:bg-[#0f8e9566] bg-[#4444444f] px-[2rem] text-center py-[0.5rem]"
-          onClick={() => loadAudioFromUrl(inputURLRef.current!.value)}
+          onClick={() => loadAudioFromUrlCallback(inputURLRef.current!.value)}
           title="Load song from url"
         >
           <MdFileUpload
@@ -92,7 +92,7 @@ export default function Music_2() {
           }  px-[2rem] flex justify-center py-[0.5rem]`}
           onClick={() => {
             setEnableShazamModal(true);
-            onSubmitSearch({ upload_file: audioFile });
+            onSubmitSearchCallback({ upload_file: audioFile });
           }}
           title="Shazam search"
           disabled={shazamDisabled ? true : false}

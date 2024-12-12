@@ -21,7 +21,7 @@ export default function O_O() {
     loadedAudio,
     loadedImage,
     setModal,
-    playAudio,
+    playAudioCallback,
   } = O_O_ViewModel();
 
   return (
@@ -115,7 +115,7 @@ export default function O_O() {
               className="text-white px-[1rem] py-[0.5rem] bg-red-900 rounded-lg hover:bg-red-600"
               onClick={() => {
                 setModal(false);
-                playAudio();
+                playAudioCallback();
               }}
             >
               Continue
