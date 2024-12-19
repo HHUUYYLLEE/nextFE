@@ -1,25 +1,34 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { segmented14 } from "src/constants/fonts";
 export default function WebName() {
-  const [switchState, setSwitchState] = useState<boolean[]>(
-    Array(10).fill(true)
-  );
-  function run(): void {
-    let arr = [];
-    const randomNum = Math.floor(Math.random() * 1024);
-    const binaryVal = randomNum.toString(2);
-    const binaryStr = binaryVal.padStart(10, "0");
-    for (let i = 0; i < 10; ++i) {
-      if (binaryStr[i] === "0") arr.push(false);
-      else arr.push(true);
-    }
-    setSwitchState(arr);
-  }
+  const arrayState = useRef<number[]>(Array(10).fill(1));
+  const [switchState, setSwitchState] = useState<number[]>(Array(10).fill(1));
+  const [turnOnInterval, setTurnOnInterval] = useState<boolean>(false);
+  const run = useCallback(() => {
+      arrayState.current = Math.floor(Math.random() * 1024)
+        .toString(2)
+        .padStart(10, "0")
+        .split("")
+        .map(Number);
+    }, []),
+    cycleLight = useCallback(() => {
+      let randomTime = 400 + Math.floor(Math.random() * 4) * 100;
+      if (turnOnInterval)
+        setTimeout(() => {
+          setSwitchState(arrayState.current);
+          cycleLight();
+        }, randomTime);
+    }, [turnOnInterval]);
   useEffect(() => {
-    const interval = setInterval(run, 500);
-    return () => clearInterval(interval);
-  }, []);
+    setTurnOnInterval(true);
+    cycleLight();
+    const interval = setInterval(run, 100);
+    return () => {
+      clearInterval(interval);
+      setTurnOnInterval(false);
+    };
+  }, [cycleLight, run]);
   return (
     <div className="ml-[0.7rem] relative bg-black w-[16rem] h-[2.5rem] flex items-center justify-center rounded-lg select-none">
       <div
@@ -33,7 +42,7 @@ export default function WebName() {
       <div className="absolute sm:text-3xl text-xl italic text-white">
         <span
           className={
-            `transition duration-300 ${switchState[0] ? "" : "opacity-20"} ` +
+            `transition duration-300 ${!!switchState[0] ? "" : "opacity-20"} ` +
             segmented14.className
           }
         >
@@ -41,7 +50,7 @@ export default function WebName() {
         </span>
         <span
           className={
-            `transition duration-300 ${switchState[1] ? "" : "opacity-20"} ` +
+            `transition duration-300 ${!!switchState[1] ? "" : "opacity-20"} ` +
             segmented14.className
           }
         >
@@ -49,7 +58,7 @@ export default function WebName() {
         </span>
         <span
           className={
-            `transition duration-300 ${switchState[2] ? "" : "opacity-20"} ` +
+            `transition duration-300 ${!!switchState[2] ? "" : "opacity-20"} ` +
             segmented14.className
           }
         >
@@ -57,7 +66,7 @@ export default function WebName() {
         </span>
         <span
           className={
-            `transition duration-300 ${switchState[3] ? "" : "opacity-20"} ` +
+            `transition duration-300 ${!!switchState[3] ? "" : "opacity-20"} ` +
             segmented14.className
           }
         >
@@ -65,7 +74,7 @@ export default function WebName() {
         </span>
         <span
           className={
-            `transition duration-300 ${switchState[4] ? "" : "opacity-20"} ` +
+            `transition duration-300 ${!!switchState[4] ? "" : "opacity-20"} ` +
             segmented14.className
           }
         >
@@ -73,7 +82,7 @@ export default function WebName() {
         </span>
         <span
           className={
-            `transition duration-300 ${switchState[5] ? "" : "opacity-20"} ` +
+            `transition duration-300 ${!!switchState[5] ? "" : "opacity-20"} ` +
             segmented14.className
           }
         >
@@ -81,7 +90,7 @@ export default function WebName() {
         </span>
         <span
           className={
-            `transition duration-300 ${switchState[6] ? "" : "opacity-20"} ` +
+            `transition duration-300 ${!!switchState[6] ? "" : "opacity-20"} ` +
             segmented14.className
           }
         >
@@ -89,7 +98,7 @@ export default function WebName() {
         </span>
         <span
           className={
-            `transition duration-300 ${switchState[7] ? "" : "opacity-20"} ` +
+            `transition duration-300 ${!!switchState[7] ? "" : "opacity-20"} ` +
             segmented14.className
           }
         >
@@ -97,7 +106,7 @@ export default function WebName() {
         </span>
         <span
           className={
-            `transition duration-300 ${switchState[8] ? "" : "opacity-20"} ` +
+            `transition duration-300 ${!!switchState[8] ? "" : "opacity-20"} ` +
             segmented14.className
           }
         >
@@ -105,7 +114,7 @@ export default function WebName() {
         </span>
         <span
           className={
-            `transition duration-300 ${switchState[9] ? "" : "opacity-20"} ` +
+            `transition duration-300 ${!!switchState[9] ? "" : "opacity-20"} ` +
             segmented14.className
           }
         >

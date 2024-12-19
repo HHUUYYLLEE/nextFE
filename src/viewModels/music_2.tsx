@@ -7,8 +7,8 @@ import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
 import AudioPlayer from "react-audio-player";
 import { getAudioBuffer } from "src/api/audioURL";
 export default function Music_2_ViewModel() {
-  const [screenWidth, setScreenWidth] = useState<number>(0);
-  const [screenHeight, setScreenHeight] = useState<number>(0);
+  const screenWidth = useRef(window.innerWidth - 30);
+  const screenHeight = useRef(window.innerHeight - 250);
   const [shazamDisabled, setShazamDisabled] = useState<boolean>(true);
   const [enableShazamModal, setEnableShazamModal] = useState<boolean>(false);
   const [searchSongInfo, setSearchSongInfo] = useState<SearchSongType>({
@@ -27,8 +27,6 @@ export default function Music_2_ViewModel() {
     inputURLRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
     window.scrollTo(0, 0);
-    setScreenWidth(window.innerWidth - 30);
-    setScreenHeight(window.innerHeight - 250);
     Modal.setAppElement("body");
   }, []);
 
@@ -126,8 +124,8 @@ export default function Music_2_ViewModel() {
     shazamDisabled,
     setEnableShazamModal,
     onSubmitSearchCallback,
-    screenHeight,
-    screenWidth,
+    screenHeight: screenHeight.current,
+    screenWidth: screenWidth.current,
     searchMutation,
     searchSongInfo,
     enableShazamModal,
