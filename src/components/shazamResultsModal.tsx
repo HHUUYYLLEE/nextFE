@@ -32,6 +32,7 @@ export default function ShazamResultsModal({
             bottom: 0,
             backgroundColor: "rgba(0, 0, 0, 0.5)",
             zIndex: 27,
+            display: enableShazamModal ? "block" : "none",
           },
           content: {
             top: "50%",
@@ -47,9 +48,10 @@ export default function ShazamResultsModal({
             paddingBottom: "4vw",
             borderWidth: "0px",
             borderRadius: "1rem",
+            display: enableShazamModal ? "block" : "none",
           },
         }}
-        isOpen={enableShazamModal}
+        isOpen={true}
         onRequestClose={() => {
           !isPending && setEnableShazamModal(false);
         }}
