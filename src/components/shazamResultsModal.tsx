@@ -2,7 +2,7 @@
 import Modal from "react-modal";
 import AudioPlayer from "react-audio-player";
 import { Dispatch, SetStateAction } from "react";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { SearchSongType } from "src/types/types";
 import shazamLoading from "public/images/shazam.gif";
 export default function ShazamResultsModal({
