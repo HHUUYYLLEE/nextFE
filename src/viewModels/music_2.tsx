@@ -3,7 +3,14 @@ import { useMutation } from "@tanstack/react-query";
 import { shazamSearch } from "src/api/shazamSearch";
 import { shazamSearchInterface, SearchSongType } from "src/types/types";
 import Modal from "react-modal";
-import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
+import {
+  ChangeEvent,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import AudioPlayer from "react-audio-player";
 import { getAudioBuffer } from "src/api/audioURL";
 export default function Music_2_ViewModel() {
@@ -26,10 +33,12 @@ export default function Music_2_ViewModel() {
     inputRef = useRef<HTMLInputElement>(null),
     inputURLRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
-    screenWidth.current = window.innerWidth - 30;
-    screenHeight.current = window.innerHeight - 250;
     window.scrollTo(0, 0);
     Modal.setAppElement("body");
+  }, []);
+  useLayoutEffect(() => {
+    screenWidth.current = window.innerWidth - 30;
+    screenHeight.current = window.innerHeight - 250;
   }, []);
 
   const loadAudioCallback = useCallback(

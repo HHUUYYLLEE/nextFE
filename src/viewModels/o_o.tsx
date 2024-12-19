@@ -1,6 +1,12 @@
 "use client";
 import Modal from "react-modal";
-import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 export default function O_O_ViewModel() {
   const [loadedImage, setLoadedImage] = useState<boolean>(false),
     [loadedAudio, setLoadedAudio] = useState<boolean>(false),
@@ -12,11 +18,13 @@ export default function O_O_ViewModel() {
     screenHeight = useRef(0);
 
   useEffect(() => {
-    screenWidth.current = window.innerWidth;
-    screenHeight.current = window.innerHeight;
     Modal.setAppElement("body");
     audioRef.current?.load();
     setImageURL("/images/phantom.gif");
+  }, []);
+  useLayoutEffect(() => {
+    screenWidth.current = window.innerWidth;
+    screenHeight.current = window.innerHeight;
   }, []);
 
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -31,8 +39,8 @@ export default function O_O_ViewModel() {
     setPlay,
     imageURL,
     play,
-    screenHeight,
-    screenWidth,
+    screenHeight: screenHeight.current,
+    screenWidth: screenWidth.current,
     setLoadedImage,
     modal,
     loadedAudio,
