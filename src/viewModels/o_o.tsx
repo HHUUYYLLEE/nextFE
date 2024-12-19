@@ -7,9 +7,13 @@ export default function O_O_ViewModel() {
     [play, setPlay] = useState<boolean>(false),
     [hideGif, setHideGif] = useState<boolean>(false),
     [modal, setModal] = useState<boolean>(true),
-    [imageURL, setImageURL] = useState<string>("/images/phantom.gif");
+    [imageURL, setImageURL] = useState<string>("/images/phantom.gif"),
+    screenWidth = useRef(0),
+    screenHeight = useRef(0);
 
   useEffect(() => {
+    screenWidth.current = window.innerWidth;
+    screenHeight.current = window.innerHeight;
     Modal.setAppElement("body");
     audioRef.current?.load();
     setImageURL("/images/phantom.gif");
@@ -27,8 +31,8 @@ export default function O_O_ViewModel() {
     setPlay,
     imageURL,
     play,
-    screenHeight: window.innerWidth,
-    screenWidth: window.innerHeight,
+    screenHeight,
+    screenWidth,
     setLoadedImage,
     modal,
     loadedAudio,

@@ -2,16 +2,18 @@
 import Modal from "react-modal";
 import AudioPlayer from "react-audio-player";
 import { Dispatch, SetStateAction } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { SearchSongType } from "src/types/types";
-
+import shazamLoading from "public/images/shazam.gif";
 export default function ShazamResultsModal({
+  enableShazamModal,
   setEnableShazamModal,
   isPending,
   isSuccess,
   isError,
   searchSongInfo,
 }: {
+  enableShazamModal: boolean;
   setEnableShazamModal: Dispatch<SetStateAction<boolean>>;
   isPending: boolean;
   isSuccess: boolean;
@@ -47,125 +49,124 @@ export default function ShazamResultsModal({
             borderRadius: "1rem",
           },
         }}
-        isOpen={true}
+        isOpen={enableShazamModal}
         onRequestClose={() => {
           !isPending && setEnableShazamModal(false);
         }}
+        ariaHideApp={false}
       >
         <div
           className={`bg-[#0d3850] ${
             isPending ? "w-[60vh] h-[60vh]" : ""
           } px-[3.5vw] py-[6vh] flex justify-center items-center rounded-xl`}
         >
-          {isPending && (
-            <Image
-              src="/images/shazam.gif"
-              fill
-              alt=""
-              draggable="false"
-              unoptimized
-              priority
-            />
-          )}
-          {!isPending &&
-            (isSuccess ? (
-              <div>
-                <div className="font-rye-600-italic text-[#ffc300] text-4xl flex justify-center">
-                  Found a song!
-                </div>
-                <div className="flex mt-[2vh] gap-x-[1vw]">
-                  <Image
-                    src={searchSongInfo.songAlbumArt}
-                    width={400}
-                    height={400}
-                    alt=""
-                    draggable="false"
-                    className="w-[12vw]"
-                  />
-                  <div className="text-white gap-y-[2vh] flex flex-col justify-between">
-                    <div className="flex flex-col gap-y-[1vh]">
-                      <div>
-                        <span>Tên bài hát: </span>
-                        <span className="font-merienda-500-italic">
-                          {searchSongInfo.songName}
-                        </span>
-                      </div>
-                      <div>
-                        <span>Biểu diễn: </span>
-                        <span className="font-merienda-500-italic">
-                          {searchSongInfo.singers}
-                        </span>
-                      </div>
-                      <div>
-                        <span>Album: </span>
-                        <span className="font-merienda-500-italic">
-                          {searchSongInfo.songAlbum}
-                        </span>
-                      </div>
-                      <div>
-                        <span>Ra mắt: </span>
-                        <span className="font-merienda-500-italic">
-                          {searchSongInfo.songRelease}
-                        </span>
-                      </div>
+          <Image
+            src={shazamLoading}
+            fill
+            alt=""
+            draggable="false"
+            unoptimized
+            priority
+            hidden={!isPending}
+          />
+
+          {isSuccess && (
+            <div>
+              <div className="font-rye-600-italic text-[#ffc300] text-4xl flex justify-center">
+                Found a song!
+              </div>
+              <div className="flex mt-[2vh] gap-x-[1vw]">
+                <Image
+                  src={searchSongInfo.songAlbumArt}
+                  width={400}
+                  height={400}
+                  alt=""
+                  draggable="false"
+                  className="w-[12vw]"
+                />
+                <div className="text-white gap-y-[2vh] flex flex-col justify-between">
+                  <div className="flex flex-col gap-y-[1vh]">
+                    <div>
+                      <span>Tên bài hát: </span>
+                      <span className="font-merienda-500-italic">
+                        {searchSongInfo.songName}
+                      </span>
                     </div>
-                    <div className="flex flex-col gap-y-[1vh]">
-                      <div>Một đoạn trong bài:</div>
-                      <AudioPlayer
-                        className="w-full"
-                        id="audio-element"
-                        controls
-                        src={searchSongInfo.songPreviewUrl}
-                      />
+                    <div>
+                      <span>Biểu diễn: </span>
+                      <span className="font-merienda-500-italic">
+                        {searchSongInfo.singers}
+                      </span>
+                    </div>
+                    <div>
+                      <span>Album: </span>
+                      <span className="font-merienda-500-italic">
+                        {searchSongInfo.songAlbum}
+                      </span>
+                    </div>
+                    <div>
+                      <span>Ra mắt: </span>
+                      <span className="font-merienda-500-italic">
+                        {searchSongInfo.songRelease}
+                      </span>
                     </div>
                   </div>
-                </div>
-                {(searchSongInfo.songShazamMusic !== "#" ||
-                  searchSongInfo.songYoutubeMusic !== "#") && (
-                  <div className="mt-[5vh] text-4xl flex justify-center font-itim-regular text-white">
-                    Nghe bài hát tại:
+                  <div className="flex flex-col gap-y-[1vh]">
+                    <div>Một đoạn trong bài:</div>
+                    <AudioPlayer
+                      className="w-full"
+                      id="audio-element"
+                      controls
+                      src={searchSongInfo.songPreviewUrl}
+                    />
                   </div>
-                )}
-                <div className="flex gap-x-[3.5vw] justify-center mt-[3vh]">
-                  {searchSongInfo.songShazamMusic !== "#" && (
-                    <a
-                      className="hover:bg-[#ffffff65] rounded-lg p-[1vh] cursor-pointer"
-                      href={searchSongInfo.songShazamMusic}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Image
-                        src="/icons/shazam_icon.png"
-                        width={2048}
-                        height={2048}
-                        alt=""
-                        draggable="false"
-                        className="w-[8vw]"
-                      />
-                    </a>
-                  )}
-                  {searchSongInfo.songYoutubeMusic !== "#" && (
-                    <a
-                      className="hover:bg-[#ffffff65] rounded-lg p-[1vh] cursor-pointer"
-                      href={searchSongInfo.songYoutubeMusic}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Image
-                        src="/icons/youtubemusic-icon.png"
-                        width={2048}
-                        height={2048}
-                        alt=""
-                        draggable="false"
-                        className="w-[8vw]"
-                      />
-                    </a>
-                  )}
                 </div>
               </div>
-            ) : (
-              <div className="text-white text-5xl">Error</div>
-            ))}
+              {(searchSongInfo.songShazamMusic !== "#" ||
+                searchSongInfo.songYoutubeMusic !== "#") && (
+                <div className="mt-[5vh] text-4xl flex justify-center font-itim-regular text-white">
+                  Nghe bài hát tại:
+                </div>
+              )}
+              <div className="flex gap-x-[3.5vw] justify-center mt-[3vh]">
+                {searchSongInfo.songShazamMusic !== "#" && (
+                  <a
+                    className="hover:bg-[#ffffff65] rounded-lg p-[1vh] cursor-pointer"
+                    href={searchSongInfo.songShazamMusic}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Image
+                      src="/icons/shazam_icon.png"
+                      width={2048}
+                      height={2048}
+                      alt=""
+                      draggable="false"
+                      className="w-[8vw]"
+                    />
+                  </a>
+                )}
+                {searchSongInfo.songYoutubeMusic !== "#" && (
+                  <a
+                    className="hover:bg-[#ffffff65] rounded-lg p-[1vh] cursor-pointer"
+                    href={searchSongInfo.songYoutubeMusic}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Image
+                      src="/icons/youtubemusic-icon.png"
+                      width={2048}
+                      height={2048}
+                      alt=""
+                      draggable="false"
+                      className="w-[8vw]"
+                    />
+                  </a>
+                )}
+              </div>
+            </div>
+          )}
+          {isError && <div className="text-white text-5xl">Error</div>}
         </div>
       </Modal>
     </>

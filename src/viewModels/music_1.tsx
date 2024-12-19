@@ -1,11 +1,13 @@
 "use client";
 import { useEffect, useRef, useReducer, useState, useCallback } from "react";
 export default function Music_1_ViewModel() {
-  const screenWidth = useRef(window.innerWidth - 30);
-  const screenHeight = useRef(window.innerHeight - 200);
+  const screenWidth = useRef(0);
+  const screenHeight = useRef(0);
   const audioRef = useRef<HTMLAudioElement>(null);
   const playAudioCallback = useCallback(() => audioRef.current?.play(), []);
   useEffect(() => {
+    screenWidth.current = window.innerWidth - 30;
+    screenHeight.current = window.innerHeight - 200;
     window.addEventListener("click", playAudioCallback);
     return () => window.removeEventListener("click", playAudioCallback);
   }, [playAudioCallback]);

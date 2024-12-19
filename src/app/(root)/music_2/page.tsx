@@ -7,7 +7,6 @@ import ReactAudioSpectrum from "react-audio-spectrum";
 import ShazamResultsModal from "src/components/shazamResultsModal";
 import Music_2_ViewModel from "src/viewModels/music_2";
 import Loading from "src/components/loading";
-
 export default function Music_2() {
   const {
     inputRef,
@@ -129,15 +128,16 @@ export default function Music_2() {
       ) : (
         <div className="h-[70vh]"></div>
       )}
-      {enableShazamModal && (
-        <ShazamResultsModal
-          setEnableShazamModal={setEnableShazamModal}
-          isPending={searchMutation.isPending}
-          isSuccess={searchMutation.isSuccess}
-          isError={searchMutation.isError}
-          searchSongInfo={searchSongInfo}
-        />
-      )}
+
+      <ShazamResultsModal
+        enableShazamModal={enableShazamModal}
+        setEnableShazamModal={setEnableShazamModal}
+        isPending={searchMutation.isPending}
+        isSuccess={searchMutation.isSuccess}
+        isError={searchMutation.isError}
+        searchSongInfo={searchSongInfo}
+      />
+
       {audioURLMutation.isPending && <Loading />}
     </div>
   );
