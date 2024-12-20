@@ -3,19 +3,12 @@ import { useMutation } from "@tanstack/react-query";
 import { shazamSearch } from "src/api/shazamSearch";
 import { shazamSearchInterface, SearchSongType } from "src/types/types";
 import Modal from "react-modal";
-import {
-  ChangeEvent,
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from "react";
+import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
 import AudioPlayer from "react-audio-player";
 import { getAudioBuffer } from "src/api/audioURL";
 export default function Music_2_ViewModel() {
-  const screenWidth = useRef(0);
-  const screenHeight = useRef(0);
+  const [screenWidth, setScreenWidth] = useState<number>(0);
+  const [screenHeight, setScreenHeight] = useState<number>(0);
   const [shazamDisabled, setShazamDisabled] = useState<boolean>(true);
   const [enableShazamModal, setEnableShazamModal] = useState<boolean>(false);
   const [searchSongInfo, setSearchSongInfo] = useState<SearchSongType>({
@@ -34,11 +27,9 @@ export default function Music_2_ViewModel() {
     inputURLRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
     window.scrollTo(0, 0);
+    setScreenWidth(window.innerWidth - 30);
+    setScreenHeight(window.innerHeight - 250);
     Modal.setAppElement("body");
-  }, []);
-  useLayoutEffect(() => {
-    screenWidth.current = window.innerWidth - 30;
-    screenHeight.current = window.innerHeight - 250;
   }, []);
 
   const loadAudioCallback = useCallback(
@@ -135,8 +126,8 @@ export default function Music_2_ViewModel() {
     shazamDisabled,
     setEnableShazamModal,
     onSubmitSearchCallback,
-    screenHeight: screenHeight.current,
-    screenWidth: screenWidth.current,
+    screenHeight,
+    screenWidth,
     searchMutation,
     searchSongInfo,
     enableShazamModal,

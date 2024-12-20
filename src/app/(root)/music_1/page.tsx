@@ -1,17 +1,21 @@
 "use client";
 import Image from "next/image";
 import ReactAudioSpectrum from "react-audio-spectrum";
-import { music_1 } from "src/constants/music";
+import { playlist } from "src/constants/music";
 import Music_1_ViewModel from "src/viewModels/music_1";
+import { TbPlayerTrackNextFilled } from "react-icons/tb";
+
 export default function Music_1() {
   const {
+    playlistCount,
     screenWidth,
     screenHeight,
     setPlayMusic,
     audioRef,
     musicCount,
+    setPlaylistAndPlay,
     playMusic,
-    changeMusic,
+    setMusicAndPlay,
   } = Music_1_ViewModel();
   return (
     <div className="mx-[5rem] my-[8rem]">
@@ -20,9 +24,9 @@ export default function Music_1() {
         ref={audioRef}
         autoPlay
         onPlaying={() => setPlayMusic(true)}
-        onEnded={() => changeMusic()}
+        onEnded={() => setMusicAndPlay()}
       >
-        <source src={"/music/" + music_1[musicCount]} type="audio/ogg" />
+        <source src={"/music/" + playlist[playlistCount][musicCount]} />
       </audio>
       {!playMusic && (
         <Image
@@ -59,6 +63,14 @@ export default function Music_1() {
       ) : (
         <div className={`h-[70vh]`}></div>
       )}
+      <button
+        className="bg-emerald-600 hover:bg-green-800 px-4 py-2 right-5 top-[21vh] rounded-lg z-20
+      flex items-center gap-x-2 text-white fixed"
+        onClick={() => setPlaylistAndPlay()}
+      >
+        <TbPlayerTrackNextFilled />
+        <div>Change playlist</div>
+      </button>
     </div>
   );
 }
