@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Random_Images_Generator_ViewModel from "src/viewModels/random-images-generator";
+import { Random_Images_Generator_ViewModel } from "src/viewModels/random-images-generator";
 
 export default function Random_Images_Generator() {
   const {

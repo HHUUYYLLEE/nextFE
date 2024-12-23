@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function Info() {
+export const Info = () => {
   return (
     <div className="flex flex-wrap content-between w-min">
       <div
@@ -64,4 +64,4 @@ export default function Info() {
       </a>
     </div>
   );
-}
+};

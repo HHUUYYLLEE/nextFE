@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function ProgLangMarquee() {
+export const ProgLangMarquee = () => {
   return (
     <div className="overflow-hidden flex">
       <div className="xl:animate-marqueexl 2xl:animate-marquee2xl">
@@ -54,4 +54,4 @@ export default function ProgLangMarquee() {
       </div>
     </div>
   );
-}
+};

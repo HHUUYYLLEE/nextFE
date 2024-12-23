@@ -1,13 +1,12 @@
 "use client";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { segmented14 } from "src/constants/fonts";
-export default function WebName() {
-  const arrayState = useRef<number[]>(Array(10).fill(1));
+export const WebName = () => {
   const [switchState, setSwitchState] = useState<number[]>(Array(10).fill(1));
   const [turnOnInterval, setTurnOnInterval] = useState<boolean>(false);
   const cycleLight = useCallback(() => {
-    let randomTime = 700 + Math.floor(Math.random() * 4) * 100;
-    if (turnOnInterval)
+    if (turnOnInterval) {
+      const randomTime = 700 + Math.floor(Math.random() * 4) * 100;
       setTimeout(() => {
         setSwitchState(
           Math.floor(Math.random() * 1024)
@@ -18,6 +17,7 @@ export default function WebName() {
         );
         cycleLight();
       }, randomTime);
+    }
   }, [turnOnInterval]);
   useEffect(() => {
     setTurnOnInterval(true);
@@ -130,4 +130,4 @@ export default function WebName() {
       </div>
     </div>
   );
-}
+};

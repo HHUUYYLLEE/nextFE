@@ -1,5 +1,5 @@
 import Image from "next/image";
-export default function QRCodes() {
+export const QRCodes = () => {
   return (
     <div className="grid gap-y-4">
       <div className="flex gap-x-8">
@@ -29,4 +29,4 @@ export default function QRCodes() {
       </div>
     </div>
   );
-}
+};

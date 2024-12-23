@@ -7,7 +7,7 @@ import {
 import Link from "next/link";
 import { SiShazam } from "react-icons/si";
 const duration = 0.7;
-export default function Features() {
+export const Features = () => {
   return (
     <div className="flex gap-x-[5rem]">
       <RevealAnimationTopToBottom duration={duration} delay={0}>
@@ -141,4 +141,4 @@ export default function Features() {
       </RevealAnimationBottomToTop>
     </div>
   );
-}
+};

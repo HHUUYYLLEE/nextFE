@@ -4,9 +4,9 @@ import { FaFileAudio } from "react-icons/fa";
 import { SiShazam } from "react-icons/si";
 import { MdFileUpload } from "react-icons/md";
 import ReactAudioSpectrum from "react-audio-spectrum";
-import ShazamResultsModal from "src/components/shazamResultsModal";
-import Music_2_ViewModel from "src/viewModels/music_2";
-import Loading from "src/components/loading";
+import { ShazamResultsModal } from "src/components/shazamResultsModal";
+import { Music_2_ViewModel } from "src/viewModels/music_2";
+import { Loading } from "src/components/loading";
 export default function Music_2() {
   const {
     inputRef,

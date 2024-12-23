@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Header from "src/components/header";
-import Footer from "src/components/footer";
-import Providers from "src/app/providers";
+import { Header } from "src/components/header";
+import { Footer } from "src/components/footer";
+import { Providers } from "src/app/providers";
 import "public/styles/globals.css";
 import { headers } from "next/headers";
 import { permanentRedirect } from "next/navigation";
 import { getSelectorsByUserAgent } from "react-device-detect";
-import Toast from "src/components/toast";
-import SocketHandler from "src/viewModels/socketHandler";
+import { Toast } from "src/components/toast";
+import { Broadcast } from "src/viewModels/broadcast";
+import { Chat } from "src/components/chat";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,6 +30,7 @@ export default async function RootLayout({
   children: [React.ReactNode];
 }>) {
   if (await checkMobile()) permanentRedirect("about:blank");
+
   return (
     <html lang="en">
       <body className={inter.className + " bg-[#12101b] "}>
@@ -36,11 +38,10 @@ export default async function RootLayout({
         <main>
           <Providers>{children}</Providers>
         </main>
-        <Toast />
-
+        <Chat />
         <Footer />
-
-        <SocketHandler />
+        <Toast />
+        <Broadcast />
       </body>
     </html>
   );

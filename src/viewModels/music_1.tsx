@@ -9,7 +9,7 @@ const setPlaylist = (playlistCount: number) => {
   else return ++playlistCount;
 };
 
-export default function Music_1_ViewModel() {
+export const Music_1_ViewModel = () => {
   const [screenWidth, setScreenWidth] = useState<number>(0);
   const [screenHeight, setScreenHeight] = useState<number>(0);
 
@@ -50,4 +50,4 @@ export default function Music_1_ViewModel() {
     playMusic,
     setPlaylistAndPlay,
   };
-}
+};

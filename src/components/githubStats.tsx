@@ -5,7 +5,7 @@ import {
   RevealAnimationRightToLeft,
 } from "src/components/animationTemplates/revealAnimation";
 
-export default function GithubStats() {
+export const GithubStats = () => {
   return (
     <div className="flex justify-between items-center 2xl:mx-[4rem]">
       <RevealAnimationLeftToRight duration={0.75} delay={0}>
@@ -30,4 +30,4 @@ export default function GithubStats() {
       </RevealAnimationRightToLeft>
     </div>
   );
-}
+};

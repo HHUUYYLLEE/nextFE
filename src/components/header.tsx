@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import Timer from "src/components/timer";
-import WebName from "src/components/webName";
+import { Timer } from "src/components/timer";
+import { WebName } from "src/components/webName";
 
-export default function Header() {
+export const Header = () => {
   return (
     <>
       <header
@@ -29,4 +29,4 @@ export default function Header() {
       </header>
     </>
   );
-}
+};

@@ -3,7 +3,7 @@ import Image from "next/image";
 import Modal from "react-modal";
 import { Oval } from "react-loader-spinner";
 import Link from "next/link";
-import O_O_ViewModel from "src/viewModels/o_o";
+import { O_O_ViewModel } from "src/viewModels/o_o";
 
 export default function O_O() {
   const {

@@ -7,11 +7,11 @@ interface Props {
   duration: number;
   delay: number;
 }
-export function RevealAnimationLeftToRight({
+export const RevealAnimationLeftToRight = ({
   children,
   duration,
   delay,
-}: Props) {
+}: Props) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
   const mainControls = useAnimation();
@@ -34,12 +34,12 @@ export function RevealAnimationLeftToRight({
       </motion.div>
     </div>
   );
-}
-export function RevealAnimationRightToLeft({
+};
+export const RevealAnimationRightToLeft = ({
   children,
   duration,
   delay,
-}: Props) {
+}: Props) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
   const mainControls = useAnimation();
@@ -62,13 +62,13 @@ export function RevealAnimationRightToLeft({
       </motion.div>
     </div>
   );
-}
+};
 
-export function RevealAnimationTopToBottom({
+export const RevealAnimationTopToBottom = ({
   children,
   duration,
   delay,
-}: Props) {
+}: Props) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
   const mainControls = useAnimation();
@@ -91,12 +91,12 @@ export function RevealAnimationTopToBottom({
       </motion.div>
     </div>
   );
-}
-export function RevealAnimationBottomToTop({
+};
+export const RevealAnimationBottomToTop = ({
   children,
   duration,
   delay,
-}: Props) {
+}: Props) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
   const mainControls = useAnimation();
@@ -119,4 +119,4 @@ export function RevealAnimationBottomToTop({
       </motion.div>
     </div>
   );
-}
+};

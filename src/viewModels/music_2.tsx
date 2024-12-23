@@ -6,7 +6,7 @@ import Modal from "react-modal";
 import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
 import AudioPlayer from "react-audio-player";
 import { getAudioBuffer } from "src/api/audioURL";
-export default function Music_2_ViewModel() {
+export const Music_2_ViewModel = () => {
   const [screenWidth, setScreenWidth] = useState<number>(0);
   const [screenHeight, setScreenHeight] = useState<number>(0);
   const [shazamDisabled, setShazamDisabled] = useState<boolean>(true);
@@ -132,4 +132,4 @@ export default function Music_2_ViewModel() {
     searchSongInfo,
     enableShazamModal,
   };
-}
+};

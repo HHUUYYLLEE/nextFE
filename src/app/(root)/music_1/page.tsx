@@ -2,7 +2,7 @@
 import Image from "next/image";
 import ReactAudioSpectrum from "react-audio-spectrum";
 import { playlist } from "src/constants/music";
-import Music_1_ViewModel from "src/viewModels/music_1";
+import { Music_1_ViewModel } from "src/viewModels/music_1";
 import { TbPlayerTrackNextFilled } from "react-icons/tb";
 
 export default function Music_1() {
@@ -68,7 +68,9 @@ export default function Music_1() {
       flex items-center gap-x-2 text-white fixed"
         onClick={() => setPlaylistAndPlay()}
       >
-        <TbPlayerTrackNextFilled />
+        <TbPlayerTrackNextFilled
+          style={{ color: "white", width: 20, height: 20 }}
+        />
         <div>Change playlist</div>
       </button>
     </div>

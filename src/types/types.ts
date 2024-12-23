@@ -26,3 +26,8 @@ export interface SearchSongType {
   songShazamMusic: string;
   songYoutubeMusic: string;
 }
+
+export interface MessageListData {
+  id: string;
+  data: string | number;
+}

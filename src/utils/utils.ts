@@ -29,7 +29,7 @@ export function displayNum(num: string) {
 }
 
 export function convertTime(num: string) {
-  let temp = parseInt(num);
+  const temp = parseInt(num);
   if (temp >= 0 && temp < 10) return "0" + temp;
   return temp;
 }

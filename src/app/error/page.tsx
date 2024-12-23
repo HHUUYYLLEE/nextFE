@@ -1,4 +1,4 @@
-export default function Error() {
+export const Error = () => {
   // function backToBlank(): void {
   //   window.location.href = "about:blank";
   // }
@@ -13,4 +13,4 @@ export default function Error() {
       <div className="flex items-center"></div>
     </>
   );
-}
+};

@@ -5,7 +5,7 @@ import { Dispatch, SetStateAction } from "react";
 import Image from "next/image";
 import { SearchSongType } from "src/types/types";
 import shazamLoading from "public/images/shazam.gif";
-export default function ShazamResultsModal({
+export const ShazamResultsModal = ({
   enableShazamModal,
   setEnableShazamModal,
   isPending,
@@ -19,7 +19,7 @@ export default function ShazamResultsModal({
   isSuccess: boolean;
   isError: boolean;
   searchSongInfo: SearchSongType;
-}) {
+}) => {
   return (
     <>
       <Modal
@@ -52,9 +52,7 @@ export default function ShazamResultsModal({
           },
         }}
         isOpen={true}
-        onRequestClose={() => {
-          !isPending && setEnableShazamModal(false);
-        }}
+        onRequestClose={() => !isPending && setEnableShazamModal(false)}
         ariaHideApp={false}
       >
         <div
@@ -173,4 +171,4 @@ export default function ShazamResultsModal({
       </Modal>
     </>
   );
-}
+};

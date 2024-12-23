@@ -1,7 +1,7 @@
 "use client";
 import Modal from "react-modal";
 import { useCallback, useEffect, useRef, useState } from "react";
-export default function O_O_ViewModel() {
+export const O_O_ViewModel = () => {
   const [screenWidth, setScreenWidth] = useState<number>(0);
   const [screenHeight, setScreenHeight] = useState<number>(0);
   const [loadedImage, setLoadedImage] = useState<boolean>(false),
@@ -41,4 +41,4 @@ export default function O_O_ViewModel() {
     hideGif,
     playAudioCallback,
   };
-}
+};

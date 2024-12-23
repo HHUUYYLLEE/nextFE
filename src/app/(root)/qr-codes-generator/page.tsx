@@ -1,6 +1,6 @@
 "use client";
 import { QRCode } from "react-qrcode-logo";
-import QR_Codes_Generator_ViewModel from "src/viewModels/qr-codes-generator";
+import { QR_Codes_Generator_ViewModel } from "src/viewModels/qr-codes-generator";
 
 export default function QR_Codes_Generator() {
   const { value, setValue } = QR_Codes_Generator_ViewModel();

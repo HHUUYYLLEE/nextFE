@@ -1,8 +1,8 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getRandomImage } from "src/api/randomImages";
 
-export default function Random_Images_Generator_ViewModel() {
+export const Random_Images_Generator_ViewModel = () => {
   const { data, refetch, isSuccess, isFetching } = useQuery({
     queryKey: ["getRandomImage"],
     queryFn: () => {
@@ -34,4 +34,4 @@ export default function Random_Images_Generator_ViewModel() {
     imageRef,
     refetch,
   };
-}
+};

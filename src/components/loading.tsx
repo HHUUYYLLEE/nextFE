@@ -1,6 +1,6 @@
 import { Oval } from "react-loader-spinner";
 import Modal from "react-modal";
-export default function Loading() {
+export const Loading = () => {
   return (
     <Modal
       style={{
@@ -40,4 +40,4 @@ export default function Loading() {
       />
     </Modal>
   );
-}
+};

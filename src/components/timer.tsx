@@ -2,26 +2,19 @@
 import { DateTime } from "luxon";
 import { useRef, useEffect } from "react";
 import { segmented7, segmented14 } from "src/constants/fonts";
-export default function Timer() {
+export const Timer = () => {
   const div = useRef<HTMLSpanElement>(null),
     seconds = useRef<HTMLSpanElement>(null),
     session = useRef<HTMLSpanElement>(null);
   function time(): void {
-    let d: string,
-      s: string,
-      m: string,
-      h: string,
-      sesn: string,
-      splitStr: string[],
-      splitStr2: string[];
-    d = DateTime.now().toLocaleString(DateTime.TIME_WITH_SECONDS);
-    splitStr = d.split(":");
-    splitStr2 = splitStr[2].split(" ");
-    s = splitStr2[0];
-    m = splitStr[1];
-    h = splitStr[0];
+    const d: string = DateTime.now().toLocaleString(DateTime.TIME_WITH_SECONDS),
+      splitStr: string[] = d.split(":"),
+      splitStr2: string[] = splitStr[2].split(" "),
+      s: string = splitStr2[0],
+      m: string = splitStr[1],
+      sesn: string = splitStr2[1];
+    let h: string = splitStr[0];
 
-    sesn = splitStr2[1];
     if (parseInt(h) < 10) h = "0" + h;
 
     // var mnth = d.getMonth() + 1
@@ -76,4 +69,4 @@ export default function Timer() {
       </div>
     </>
   );
-}
+};
