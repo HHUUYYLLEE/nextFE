@@ -34,6 +34,11 @@ const config: Config = {
         ".gutter-stable": {
           "scrollbar-gutter": "stable",
         },
+        ".toast": {
+          "background-image":
+            "linear-gradient(to right, #141E30 0%, #243B55  51%, #141E30  100%)",
+          "background-size": "200% auto",
+        },
       });
     }),
   ],

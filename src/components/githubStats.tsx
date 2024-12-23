@@ -7,7 +7,7 @@ import {
 
 export default function GithubStats() {
   return (
-    <div className="flex justify-between 2xl:mx-[4rem]">
+    <div className="flex justify-between items-center 2xl:mx-[4rem]">
       <RevealAnimationLeftToRight duration={0.75} delay={0}>
         <Image
           alt=""
