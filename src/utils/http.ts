@@ -24,7 +24,7 @@ const multipartFormInstance = axios.create({
   },
 });
 
-var accessToken = getAccessTokenFromLS();
+let accessToken = getAccessTokenFromLS();
 
 applicationJSONInstance.interceptors.request.use(
   (config) => {

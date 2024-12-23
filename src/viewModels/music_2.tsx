@@ -6,6 +6,7 @@ import Modal from "react-modal";
 import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
 import AudioPlayer from "react-audio-player";
 import { getAudioBuffer } from "src/api/audioURL";
+import { AxiosResponse } from "axios";
 export const Music_2_ViewModel = () => {
   const [screenWidth, setScreenWidth] = useState<number>(0);
   const [screenHeight, setScreenHeight] = useState<number>(0);
@@ -54,7 +55,7 @@ export const Music_2_ViewModel = () => {
       const formData = new FormData();
       formData.append("url", url);
       audioURLMutation.mutate(formData, {
-        onSuccess: (data: any) => {
+        onSuccess: (data: AxiosResponse) => {
           const audioFile = new File(
             [
               new Blob([Buffer.from(data.data.buffer, "utf-8")], {
@@ -85,7 +86,7 @@ export const Music_2_ViewModel = () => {
       formData.append("filename", data.upload_file.name);
       formData.append("upload_file", data.upload_file);
       searchMutation.mutate(formData, {
-        onSuccess: (data: any) => {
+        onSuccess: (data: AxiosResponse) => {
           const songName = data.data.songName,
             singers = data.data.singers,
             songAlbumArt = data.data.songAlbumArt,
