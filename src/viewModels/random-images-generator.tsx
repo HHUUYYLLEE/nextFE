@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getRandomImage } from "src/api/randomImages";
+
 export default function Random_Images_Generator_ViewModel() {
   const { data, refetch, isSuccess, isFetching } = useQuery({
     queryKey: ["getRandomImage"],
@@ -10,6 +11,10 @@ export default function Random_Images_Generator_ViewModel() {
     enabled: false,
     retry: true,
   });
+
+  const handleRefetch = () => {
+    refetch();
+  };
   const [loadingImg, setLoadingImg] = useState(false);
   const imageRef = useRef<HTMLImageElement>(null);
   useEffect(() => {
@@ -18,8 +23,10 @@ export default function Random_Images_Generator_ViewModel() {
       else setLoadingImg(true);
     }
   }, [isFetching]);
+
   return {
     isSuccess,
+    handleRefetch,
     isFetching,
     loadingImg,
     setLoadingImg,

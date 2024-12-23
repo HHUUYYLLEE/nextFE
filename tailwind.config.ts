@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-
+import plugin from "tailwindcss/plugin";
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -24,6 +24,18 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addUtilities, addVariant }) {
+      addVariant("webkit-scrollbar", "&::-webkit-scrollbar");
+      addUtilities({
+        ".scrollbar-w-none": {
+          "scrollbar-width": "none",
+        },
+        ".gutter-stable": {
+          "scrollbar-gutter": "stable",
+        },
+      });
+    }),
+  ],
 };
 export default config;

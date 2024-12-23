@@ -11,7 +11,7 @@ export default function Random_Images_Generator() {
     setLoadingImg,
     data,
     imageRef,
-    refetch,
+    handleRefetch,
   } = Random_Images_Generator_ViewModel();
   return (
     <div className="mx-[5rem] my-[8rem]">
@@ -35,7 +35,7 @@ export default function Random_Images_Generator() {
               width={0}
               sizes="100vw"
               style={{ width: "auto", height: "250px" }}
-              onError={() => refetch()}
+              onError={() => handleRefetch()}
             />
           </div>
         )}
@@ -63,7 +63,7 @@ export default function Random_Images_Generator() {
           className="text-white bg-blue-700 rounded-md px-[2rem] py-[0.5rem]
         hover:enabled:bg-green-600 disabled:bg-gray-800 disabled:text-gray-600"
           disabled={isFetching || loadingImg ? true : false}
-          onClick={() => refetch()}
+          onClick={() => handleRefetch()}
         >
           Get random image
         </button>

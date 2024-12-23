@@ -7,7 +7,8 @@ import "public/styles/globals.css";
 import { headers } from "next/headers";
 import { permanentRedirect } from "next/navigation";
 import { getSelectorsByUserAgent } from "react-device-detect";
-
+import Toast from "src/components/toast";
+import SocketHandler from "src/viewModels/socketHandler";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -34,7 +35,10 @@ export default async function RootLayout({
         <main>
           <Providers>{children}</Providers>
         </main>
+        <Toast />
         <Footer />
+
+        <SocketHandler />
       </body>
     </html>
   );

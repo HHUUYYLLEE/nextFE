@@ -3,6 +3,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+* {
+  margin: 0;
+  padding: 0;
+  scrollbar-gutter: stable;
+}
 
 .font-lexend-400 {
   font-family: "Lexend", sans-serif;
