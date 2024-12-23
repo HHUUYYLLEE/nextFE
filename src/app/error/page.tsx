@@ -1,4 +1,4 @@
-export const Error = () => {
+const Error = () => {
   // function backToBlank(): void {
   //   window.location.href = "about:blank";
   // }
@@ -14,3 +14,4 @@ export const Error = () => {
     </>
   );
 };
+export default Error;
