@@ -1,7 +1,7 @@
 "use client";
-import { ToastContainer } from "react-toastify/unstyled";
+import { ToastContainer } from "react-toastify";
 import { contextClass } from "src/constants/toastify";
-import "react-toastify/dist/ReactToastify.css";
+
 export default function Toast() {
   return (
     <>

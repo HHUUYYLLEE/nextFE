@@ -4,7 +4,7 @@ import useWebSocket from "react-use-websocket";
 import { useCallback, useEffect } from "react";
 import { broadCastMessages } from "src/constants/broadcastMessages";
 import { WsSocketMessage } from "src/types/wsSocket";
-import { toast } from "react-toastify/unstyled";
+import { toast } from "react-toastify";
 export default function SocketHandler() {
   const { lastJsonMessage, sendJsonMessage } = useWebSocket(
     `${envConfig.deployURL}`,
