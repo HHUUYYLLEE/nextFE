@@ -32,6 +32,9 @@ export const Chat = () => {
           onClick={() => {
             setNewMessageNotif(false);
             setOpenChat((prev) => !prev);
+            if (messageListRef.current)
+              messageListRef.current.scrollTop =
+                messageListRef.current.scrollHeight;
           }}
         >
           <IoChatbubbleEllipsesOutline
