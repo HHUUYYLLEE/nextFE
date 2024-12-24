@@ -3,7 +3,7 @@ import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
 import "react-chat-elements/dist/main.css";
 import { Chat_View_Model } from "src/viewModels/chat";
 import { Socket } from "src/viewModels/socket";
-import { Button, Input, MessageList, MessageType } from "react-chat-elements";
+import { Button, Input, MessageList } from "react-chat-elements";
 import React from "react";
 import { IoSend } from "react-icons/io5";
 import { Oval } from "react-loader-spinner";
