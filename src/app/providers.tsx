@@ -40,7 +40,7 @@ function getQueryClient() {
 export const Providers = ({
   children,
 }: Readonly<{
-  children: [React.ReactNode];
+  children: React.ReactNode;
 }>) => {
   // NOTE: Avoid useState when initializing the query client if you don't
   //       have a suspense boundary between this and the code that may

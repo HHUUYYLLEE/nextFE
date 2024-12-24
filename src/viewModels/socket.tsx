@@ -2,23 +2,35 @@
 import { envConfig } from "src/utils/env";
 import io from "socket.io-client";
 import { useEffect, useState } from "react";
-export const socket = io(envConfig.deployURL);
+import { MessageListData } from "src/types/types";
+const socket = io(envConfig.deployURL);
 export const Socket = () => {
   const [broadcastEvent, setBroadcastEvent] = useState<number>(0),
-    [messageEvent, setMessageEvent] = useState<number | string>("");
+    [messageEvent, setMessageEvent] = useState<MessageListData>({
+      id: "",
+      data: "",
+      date: new Date(),
+    }),
+    [connectedId, setConnectedId] = useState<string>("");
+
   useEffect(() => {
     function onBroadcastEvent(data: number) {
       setBroadcastEvent(data);
     }
-    function onMessageEvent(data: number | string) {
+    function onMessageEvent(data: MessageListData) {
       setMessageEvent(data);
     }
     socket.on("broadcast", onBroadcastEvent);
     socket.on("message", onMessageEvent);
+
     return () => {
-      socket.off("broadcast", onBroadcastEvent);
-      socket.off("message", onMessageEvent);
+      socket.close();
     };
   }, []);
-  return { broadcastEvent, messageEvent };
+  return {
+    broadcastEvent,
+    messageEvent,
+    connectedId,
+    socket,
+  };
 };

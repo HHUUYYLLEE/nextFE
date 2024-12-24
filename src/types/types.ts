@@ -30,4 +30,9 @@ export interface SearchSongType {
 export interface MessageListData {
   id: string;
   data: string | number;
+  date: Date;
+}
+export interface MessageListDataInterface {
+  message: string;
+  messageList: MessageListData[];
 }

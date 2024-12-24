@@ -27,7 +27,7 @@ async function checkMobile() {
 export default async function RootLayout({
   children,
 }: Readonly<{
-  children: [React.ReactNode];
+  children: React.ReactNode;
 }>) {
   if (await checkMobile()) permanentRedirect("about:blank");
 
@@ -36,9 +36,12 @@ export default async function RootLayout({
       <body className={inter.className + " bg-[#12101b] "}>
         <Header />
         <main>
-          <Providers>{children}</Providers>
+          <Providers>
+            {children}
+            <Chat />
+          </Providers>
         </main>
-        <Chat />
+
         <Footer />
         <Toast />
         <Broadcast />

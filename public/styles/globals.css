@@ -8,8 +8,12 @@
   padding: 0;
   scrollbar-gutter: stable;
 }
-
-
+.rce-mbox {
+  width: 16vw;
+}
+.rce-mlist {
+  overflow: hidden !important;
+}
 
 .font-lexend-400 {
   font-family: "Lexend", sans-serif;
