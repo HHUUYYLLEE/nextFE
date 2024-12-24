@@ -49,7 +49,7 @@ export const Chat = () => {
                   <div className="pt-2 w-[31vw] overflow-y-auto">
                     <MessageList
                       referance={React.createRef()}
-                      lockable={true}
+                      lockable={false}
                       toBottomHeight="100%"
                       dataSource={messageList.map((message) => {
                         return {
