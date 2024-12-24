@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getAllMessages } from "src/api/allMessages";
 export const Chat_View_Model = () => {
   const [messageList, setMessageList] = useState<MessageListData[]>([]),
+    messageListRef = useRef<HTMLDivElement>(null),
     inputRef = useRef<HTMLTextAreaElement>(null),
     [openChat, setOpenChat] = useState<boolean>(false),
     [newMessageNotif, setNewMessageNotif] = useState<boolean>(false),
@@ -62,6 +63,8 @@ export const Chat_View_Model = () => {
   }, [messageEvent, setMessageList]);
   useEffect(() => {
     if (messageList.length >= 40) setMessageList((prev) => prev.slice(1));
+    if (messageListRef.current)
+      messageListRef.current.scrollTop = messageListRef.current.scrollHeight;
   }, [messageList.length, setMessageList]);
   return {
     openChat,
@@ -74,5 +77,6 @@ export const Chat_View_Model = () => {
     isSuccess,
     newMessageNotif,
     setNewMessageNotif,
+    messageListRef,
   };
 };

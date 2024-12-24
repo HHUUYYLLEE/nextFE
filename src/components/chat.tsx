@@ -10,6 +10,7 @@ import { Oval } from "react-loader-spinner";
 let clearRef = () => {};
 export const Chat = () => {
   const {
+      messageListRef,
       openChat,
       setOpenChat,
       messageList,
@@ -46,10 +47,13 @@ export const Chat = () => {
             <div className="absolute bottom-0 left-16 w-[31vw] h-[70vh] rounded-lg bg-slate-800 flex flex-col justify-between overflow-hidden">
               {isSuccess && (
                 <>
-                  <div className="pt-2 w-[31vw] overflow-y-auto">
+                  <div
+                    ref={messageListRef}
+                    className="pt-2 w-[31vw] overflow-y-auto"
+                  >
                     <MessageList
                       referance={React.createRef()}
-                      lockable={false}
+                      lockable={true}
                       toBottomHeight="100%"
                       dataSource={messageList.map((message) => {
                         return {
