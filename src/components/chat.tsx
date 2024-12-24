@@ -18,20 +18,29 @@ export const Chat = () => {
       handleEnter,
       isLoading,
       isSuccess,
+      setNewMessageNotif,
+      newMessageNotif,
     } = Chat_View_Model(),
     { connectedId } = Socket();
   return (
     <div className="fixed bottom-[10vh] left-2">
       <div className="relative">
         <button
-          className=" rounded-full text-center
+          className="relative rounded-full text-center
      bg-emerald-600 hover:bg-green-800 text-white px-2 py-2"
-          onClick={() => setOpenChat((prev) => !prev)}
+          onClick={() => {
+            setNewMessageNotif(false);
+            setOpenChat((prev) => !prev);
+          }}
         >
           <IoChatbubbleEllipsesOutline
             style={{ color: "white", width: 35, height: 35 }}
           />
+          {newMessageNotif && !openChat && (
+            <div className="absolute top-0 right-0 w-[1vw] h-[1vw] bg-red-500 rounded-full"></div>
+          )}
         </button>
+
         {openChat && (
           <>
             <div className="absolute bottom-0 left-16 w-[31vw] h-[70vh] rounded-lg bg-slate-800 flex flex-col justify-between overflow-hidden">

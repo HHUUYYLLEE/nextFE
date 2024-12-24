@@ -8,11 +8,13 @@ export const Chat_View_Model = () => {
   const [messageList, setMessageList] = useState<MessageListData[]>([]),
     inputRef = useRef<HTMLTextAreaElement>(null),
     [openChat, setOpenChat] = useState<boolean>(false),
+    [newMessageNotif, setNewMessageNotif] = useState<boolean>(false),
     { messageEvent, socket, connectedId } = Socket(),
     { isLoading, isSuccess } = useQuery({
       queryKey: ["messageList"],
       queryFn: async () => {
         const data = (await getAllMessages()).data;
+        if (data.messageList.length > 0) setNewMessageNotif(true);
         setMessageList(data.messageList);
         return data;
       },
@@ -44,8 +46,10 @@ export const Chat_View_Model = () => {
     ]);
   };
   useEffect(() => {
-    console.log(messageEvent);
-    if (messageEvent.id !== "" && messageEvent.data !== "")
+    // console.log(messageEvent);
+
+    if (messageEvent.id !== "" && messageEvent.data !== "") {
+      setNewMessageNotif(true);
       setMessageList((prev) => [
         ...prev,
         {
@@ -54,6 +58,7 @@ export const Chat_View_Model = () => {
           date: new Date(),
         },
       ]);
+    }
   }, [messageEvent, setMessageList]);
   useEffect(() => {
     if (messageList.length >= 40) setMessageList((prev) => prev.slice(1));
@@ -67,5 +72,7 @@ export const Chat_View_Model = () => {
     handleEnter,
     isLoading,
     isSuccess,
+    newMessageNotif,
+    setNewMessageNotif,
   };
 };
