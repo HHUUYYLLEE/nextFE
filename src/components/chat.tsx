@@ -37,7 +37,7 @@ export const Chat = () => {
             style={{ color: "white", width: 35, height: 35 }}
           />
           {newMessageNotif && !openChat && (
-            <div className="absolute top-0 right-0 w-[1vw] h-[1vw] bg-red-500 rounded-full"></div>
+            <div className="absolute top-0 right-0 w-[1vw] h-[1vw] bg-[#ff0000] rounded-full"></div>
           )}
         </button>
 
