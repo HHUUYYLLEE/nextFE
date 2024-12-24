@@ -3,10 +3,11 @@ import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
 import "react-chat-elements/dist/main.css";
 import { Chat_View_Model } from "src/viewModels/chat";
 import { Socket } from "src/viewModels/socket";
-import { Button, Input, MessageList } from "react-chat-elements";
+import { Button, Input, MessageList, MessageType } from "react-chat-elements";
 import React from "react";
 import { IoSend } from "react-icons/io5";
 import { Oval } from "react-loader-spinner";
+import { MessageListData } from "src/types/types";
 let clearRef = () => {};
 export const Chat = () => {
   const {
@@ -58,8 +59,8 @@ export const Chat = () => {
                       referance={React.createRef()}
                       lockable={true}
                       toBottomHeight="100%"
-                      dataSource={messageList.map((message) => {
-                        return {
+                      dataSource={messageList.map(
+                        (message: MessageListData) => ({
                           className:
                             "!overflow-x-visible text-indigo-800 whitespace-pre-wrap",
                           id: message.id,
@@ -72,7 +73,10 @@ export const Chat = () => {
                           date: 1,
                           dateString: new Date(message.date).toLocaleTimeString(
                             navigator.language,
-                            { hour: "2-digit", minute: "2-digit" }
+                            {
+                              hour: "2-digit",
+                              minute: "2-digit",
+                            }
                           ),
                           titleColor: "#1e293b",
                           forwarded: false,
@@ -81,8 +85,8 @@ export const Chat = () => {
                           status: "read",
                           notch: false,
                           retracted: false,
-                        };
-                      })}
+                        })
+                      )}
                     />
                   </div>
 
