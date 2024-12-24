@@ -1,6 +1,13 @@
 "use client";
 import { ToastContainer } from "react-toastify";
-import { contextClass } from "src/constants/toastify";
+const contextClass = {
+  success: "toast",
+  error: "toast",
+  info: "toast",
+  warning: "toast",
+  default: "toast",
+  dark: "toast",
+};
 
 export const Toast = () => {
   return (
@@ -14,9 +21,6 @@ export const Toast = () => {
            cursor-pointer overflow-x-hidden mb-2`
           );
         }}
-        // toastClassName="toast pl-3 pr-1 py-1 min-h-[10vh] min-w-[20vw]
-        //   rounded-md text-sm flex items-center text-white
-        //    cursor-pointer overflow-x-hidden mb-2"
         position="bottom-right"
         autoClose={3000}
         hideProgressBar={true}
